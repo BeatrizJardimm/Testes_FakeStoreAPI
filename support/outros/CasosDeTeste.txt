@@ -36,143 +36,143 @@ TC18: Add a product with an empty category
 ** PUT **
 TC19: Update a product using PUT request                                                                                (PUT200)
 TC20: Add a new product using PUT request                                                                               (PUT201)
-TC20: Update a non-existent product using PUT request
-TC21: Update a product with a title that already exists using PUT request
-TC22: Update a product to an empty product using PUT request
-TC23: Update a product with an empty title using PUT request
-TC24: Update a product with an empty price using PUT request
-TC25: Update a product with an empty description using PUT request
-TC26: Update a product with an empty image using PUT request
-TC27: Update a product with an empty category using PUT request
+TC21: Update a non-existent product using PUT request
+TC22: Update a product with a title that already exists using PUT request
+TC23: Update a product to an empty product using PUT request
+TC24: Update a product with an empty title using PUT request
+TC25: Update a product with an empty price using PUT request
+TC26: Update a product with an empty description using PUT request
+TC27: Update a product with an empty image using PUT request
+TC28: Update a product with an empty category using PUT request
 
 ** PATCH **
-TC28: Update a product using PATCH request                                                                              (PATCH200)
-TC20: Add a new product using PATCH request                                                                             (PATCH201)
-TC29: Update a non-exstent product using PATCH request
-TC30: Update a product with a title that already exists using PATCH request
-TC30: Update a product to an empty product using PATCH request
-TC31: Update a product with an empty title using PATCH request
-TC32: Update a product with an empty price using PATCH request
-TC33: Update a product with an empty description using PATCH request
-TC34: Update a product with an empty image using PATCH request
-TC35: Update a product with an empty category using PATCH request
+TC29: Update a product using PATCH request                                                                              (PATCH200)
+TC30: Add a new product using PATCH request                                                                             (PATCH201)
+TC31: Update a non-exstent product using PATCH request
+TC32: Update a product with a title that already exists using PATCH request
+TC33: Update a product to an empty product using PATCH request
+TC34: Update a product with an empty title using PATCH request
+TC35: Update a product with an empty price using PATCH request
+TC36: Update a product with an empty description using PATCH request
+TC37: Update a product with an empty image using PATCH request
+TC38: Update a product with an empty category using PATCH request
 
 ** DELETE **
-TC36: Delete a product                                                                                                 (DELETE200)
-TC37: Delete a non-existent product
+TC39: Delete a product                                                                                                 (DELETE200)
+TC40: Delete a non-existent product
 
 /CART (42 tests) carts_tests.robot
 
 ** GET **
-TC38: List the details of all carts                                                                                    (GET200.1)
-TC39: List the details of a specific cart                                                                              (GET200.2)
-TC40: List a non-existent cart
-TC41: List the details of a limited quantity of carts                                                                  (GET200.3)
-TC42: List the details of an out of range quantity of carts
-TC43: List all carts sorted (decreasing ID)                                                                            (GET200.4)
-TC44: Pass an invalid parameter for "sort"
-TC45: List all carts criated in a certain date                                                                         (GET200.5)
-TC46: List all carts criated in a future date
-TC47: List all carts criated in a very old date
-TC48: List the carts of a user that has carts                                                                          (GET200.6)
-TC49: List the carts of a user that doesn't have carts
-TC50: List the carts of a non-existent user
+TC41: List the details of all carts                                                                                    (GET200.1)
+TC42: List the details of a specific cart                                                                              (GET200.2)
+TC43: List a non-existent cart
+TC44: List the details of a limited quantity of carts                                                                  (GET200.3)
+TC45: List the details of an out of range quantity of carts
+TC46: List all carts sorted (decreasing ID)                                                                            (GET200.4)
+TC47: Pass an invalid parameter for "sort"
+TC48: List all carts criated in a certain date                                                                         (GET200.5)
+TC49: List all carts criated in a future date
+TC50: List all carts criated in a very old date
+TC50: List the carts of a user that has carts                                                                          (GET200.6)
+TC51: List the carts of a user that doesn't have carts
+TC52: List the carts of a non-existent user
 
 ** POST **
-TC51: Add a product to a cart                                                                                          (POST201)
-TC51: Add a product that's already in a cart
-TC52: Add a product to a cart of a non-existent user
-TC53: Add a product to a cart with an empty userId
-TC54: Add a product to a cart with an invalid date
-TC55: Add a product to a cart with an empty date
-TC56: Add an empty product to a cart
-TC57: Add a product to a cart with an invalid ID
-TC58: Add a product to a cart with an out-of-range quantity
-TC59: Add a valid and an invalid product to a cart at the same time
+TC53: Add a product to a cart                                                                                          (POST201)
+TC54: Add a product that's already in a cart
+TC55: Add a product to a cart of a non-existent user
+TC56: Add a product to a cart with an empty userId
+TC57: Add a product to a cart with an invalid date
+TC58: Add a product to a cart with an empty date
+TC59: Add an empty product to a cart
+TC60: Add a product to a cart with an invalid ID
+TC61: Add a product to a cart with an out-of-range quantity
+TC62: Add a valid and an invalid product to a cart at the same time
 
 ** PUT **
-TC60: Update the details of a product in a cart using PUT request                                                       (PUT200)
-TC20: Add a new product using PUT request                                                                               (PUT201)
-TC61: Update the details of a product in a cart with a non-existent user using PUT request
-TC62: Update the details of a product in a cart with an empty userId using PUT request
-TC63: Update the details of a product in a cart with an invalid date using PUT request
-TC64: Update the details of a product in a cart with an empty date using PUT request
-TC65: Update the details of a product in a cart with an empty product using PUT request
-TC66: Update the details of a product in a cart with an invalid ID using PUT request
-TC67: Update the details of a product in a cart with an out-of-range quantity using PUT request
-TC68: Update the details of a product in a cart with a valid and an invalid product at the same time using PUT request
+TC63: Update the details of a product in a cart using PUT request                                                       (PUT200)
+TC24: Add a new product using PUT request                                                                               (PUT201)
+TC65: Update the details of a product in a cart with a non-existent user using PUT request
+TC66: Update the details of a product in a cart with an empty userId using PUT request
+TC67: Update the details of a product in a cart with an invalid date using PUT request
+TC68: Update the details of a product in a cart with an empty date using PUT request
+TC69: Update the details of a product in a cart with an empty product using PUT request
+TC70: Update the details of a product in a cart with an invalid ID using PUT request
+TC71: Update the details of a product in a cart with an out-of-range quantity using PUT request
+TC72: Update the details of a product in a cart with a valid and an invalid product at the same time using PUT request
 
 ** PATCH **
-TC69: Update the details of a product in a cart using PATCH request                                                     (PATCH200)
-TC20: Add a new product using PATCH request                                                                             (PATCH201)
-TC70: Update the details of a product in a cart with a non-existent user using PUT request
-TC71: Update the details of a product in a cart with an empty userId using PUT request
-TC72: Update the details of a product in a cart with an invalid date using PUT request
-TC73: Update the details of a product in a cart with an empty date using PUT request
-TC74: Update the details of a product in a cart with an empty product using PUT request
-TC75: Update the details of a product in a cart with an invalid ID using PUT request
-TC76: Update the details of a product in a cart with an out-of-range quantity using PUT request
-TC77: Update the details of a product in a cart with a valid and an invalid product at the same time using PUT request
+TC73: Update the details of a product in a cart using PATCH request                                                     (PATCH200)
+TC74: Add a new product using PATCH request                                                                             (PATCH201)
+TC75: Update the details of a product in a cart with a non-existent user using PUT request
+TC76: Update the details of a product in a cart with an empty userId using PUT request
+TC77: Update the details of a product in a cart with an invalid date using PUT request
+TC78: Update the details of a product in a cart with an empty date using PUT request
+TC79: Update the details of a product in a cart with an empty product using PUT request
+TC80: Update the details of a product in a cart with an invalid ID using PUT request
+TC81: Update the details of a product in a cart with an out-of-range quantity using PUT request
+TC82: Update the details of a product in a cart with a valid and an invalid product at the same time using PUT request
 
 ** DELETE **
-TC78: Delete a cart                                                                                                     (DELETE200)
-TC79: Delete a non-existent cart
+TC83: Delete a cart                                                                                                     (DELETE200)
+TC84: Delete a non-existent cart
 
 /USERS (36 tests) users_tests.robot
 
 ** GET **
-TC80: List all users                                                                                                    (GET200.1)
-TC81: List the details of a specific user                                                                               (GET200.2)
-TC82: List a non-existent user
-TC83: List the details of a limited quantity of users                                                                   (GET200.3)
-TC84: List the details of an out of range quantity of users
-TC85: List all users sorted (decreasing ID)                                                                             (GET200.4)
-TC86: Pass an invalid parameter for "sort"
+TC85: List all users                                                                                                    (GET200.1)
+TC86: List the details of a specific user                                                                               (GET200.2)
+TC87: List a non-existent user
+TC88: List the details of a limited quantity of users                                                                   (GET200.3)
+TC89: List the details of an out of range quantity of users
+TC90: List all users sorted (decreasing ID)                                                                             (GET200.4)
+TC91: Pass an invalid parameter for "sort"
 
 ** POST **
-TC87: Create a new user                                                                                                 (POST201)
-TC88: Create a new user with an email that already exists
-TC89: Create a new user with a username that already exists
-TC90: Create a new user with an empty email
-TC91: Create a new user with an empty username
-TC92: Create a new user with an empty password
-TC93: Create a new user with an empty parameter in 'name'
-TC94: Create a new user with an empty parameter in 'address'
-TC95: Create a new user with an empty phone
+TC92: Create a new user                                                                                                 (POST201)
+TC93: Create a new user with an email that already exists
+TC94: Create a new user with a username that already exists
+TC95: Create a new user with an empty email
+TC96: Create a new user with an empty username
+TC97: Create a new user with an empty password
+TC98: Create a new user with an empty parameter in 'name'
+TC99: Create a new user with an empty parameter in 'address'
+TC100: Create a new user with an empty phone
 
 ** PUT **
-TC96: Update a user using PUT request                                                                                   (PUT200)
-TC96: Add a user using PUT request                                                                                      (PUT201)
-TC97: Update a user with an email that already exists using PUT request
-TC98: Update a user with a username that already exists using PUT request
-TC99: Update a user with an empty email using PUT request
-TC100: Update a user with an empty username using PUT request
-TC101: Update a user with an empty password using PUT request
-TC102: Update a user with an empty parameter in 'name' using PUT request
-TC103: Update a user with an empty parameter in 'address' using PUT request
-TC104: Update a user with an empty phone using PUT request
+TC101: Update a user using PUT request                                                                                   (PUT200)
+TC102: Add a user using PUT request                                                                                      (PUT201)
+TC103: Update a user with an email that already exists using PUT request
+TC104: Update a user with a username that already exists using PUT request
+TC105: Update a user with an empty email using PUT request
+TC106: Update a user with an empty username using PUT request
+TC107: Update a user with an empty password using PUT request
+TC108: Update a user with an empty parameter in 'name' using PUT request
+TC109: Update a user with an empty parameter in 'address' using PUT request
+TC110: Update a user with an empty phone using PUT request
 
 ** PATCH **
-TC105: Update a user using PATCH request                                                                                (PATCH200)
-TC96: Add a user using PATCH request                                                                                    (PATCH201)
-TC106: Update a user with an email that already exists using PATCH request
-TC107: Update a user with a username that already exists using PATCH request
-TC108: Update a user with an empty email using PATCH request
-TC109: Update a user with an empty username using PATCH request
-TC110: Update a user with an empty password using PATCH request
-TC111: Update a user with an empty parameter in 'name' using PATCH request
-TC112: Update a user with an empty parameter in 'address' using PATCH request
-TC113: Update a user with an empty phone using PATCH request
+TC111: Update a user using PATCH request                                                                                (PATCH200)
+TC112: Add a user using PATCH request                                                                                    (PATCH201)
+TC113: Update a user with an email that already exists using PATCH request
+TC114: Update a user with a username that already exists using PATCH request
+TC115: Update a user with an empty email using PATCH request
+TC116: Update a user with an empty username using PATCH request
+TC117: Update a user with an empty password using PATCH request
+TC118: Update a user with an empty parameter in 'name' using PATCH request
+TC119: Update a user with an empty parameter in 'address' using PATCH request
+TC120: Update a user with an empty phone using PATCH request
 
 ** DELETE **
-TC114: Delete a user                                                                                                    (DELETE200)
-TC115: Delete a non-existent user
+TC121: Delete a user                                                                                                    (DELETE200)
+TC122: Delete a non-existent user
 
 /LOGIN (5 tests) login_tests.robot
 
 ** POST **
-TC116: Login a user                                                                                                     (LOGIN200)
-TC117: Login a user without passing the username
-TC118: Login a user without passing the password
-TC119: Login a user with the wrong password
-TC120: Login a non-existent user
+TC123: Login a user                                                                                                     (LOGIN200)
+TC124: Login a user without passing the username
+TC125: Login a user without passing the password
+TC126: Login a user with the wrong password
+TC127: Login a non-existent user
