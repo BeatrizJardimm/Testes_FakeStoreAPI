@@ -1,0 +1,49 @@
+{
+    "valid_product":{
+        "title": "test product",
+        "price": 13.5,
+        "description": "lorem ipsum set",
+        "image": "https://i.pravatar.cc",
+        "category": "electronic"
+    },
+    "invalid_product":{
+        "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        "price": 15.5,
+        "description": "lorem ipsum set",
+        "image": "https://i.pravatar.cc",
+        "category": "jewelery"
+    },
+    "empty_product":{
+
+    },
+    "empty_title":{
+        "price": 15.5,
+        "description": "lorem ipsum set",
+        "image": "https://i.pravatar.cc",
+        "category": "jewelery"
+    },
+    "empty_price":{
+        "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        "description": "lorem ipsum set",
+        "image": "https://i.pravatar.cc",
+        "category": "jewelery"
+    },
+    "empty_description":{
+        "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        "price": 15.5,
+        "image": "https://i.pravatar.cc",
+        "category": "jewelery"
+    },
+    "empty_image":{
+        "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        "price": 15.5,
+        "description": "lorem ipsum set",
+        "category": "jewelery"
+    },
+    "empty_category":{
+        "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        "price": 15.5,
+        "description": "lorem ipsum set",
+        "image": "https://i.pravatar.cc"
+    }
+}
