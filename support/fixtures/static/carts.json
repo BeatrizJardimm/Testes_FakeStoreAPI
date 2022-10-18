@@ -1,0 +1,55 @@
+{
+    "valid_cart": {
+        "userId":5,
+        "date":"2020-02-03",
+        "products":[{"productId":5, "quantity":1},
+                    {"productId":1,"quantity":5}]
+    },
+    "nonexistent_user": {
+        "userId":105,
+        "date":"2022-18-10",
+        "products":[{"productId":5, "quantity":1},
+                    {"productId":1,"quantity":5}]
+    },
+    "has_cart_user": {
+        "userId":1,
+        "date":"2022-18-10",
+        "products":[{"productId":5, "quantity":1},
+                    {"productId":1,"quantity":5}]
+    },
+    "empty_user":{
+        "date":"2022-18-10",
+        "products":[{"productId":5, "quantity":1},
+                    {"productId":1,"quantity":5}]
+    },
+    "invalid_date":{
+        "userId":5,
+        "date":"2059-89-37",
+        "products":[{"productId":5, "quantity":1},
+                    {"productId":1,"quantity":5}]
+    },
+    "empty_date":{
+        "userId":5,
+        "products":[{"productId":5, "quantity":1},
+                    {"productId":1,"quantity":5}]
+    },
+    "empty_product":{
+
+    },
+    "invalid_id":{
+        "userId":5,
+        "date":"2020-02-03",
+        "products":[{"productId":87, "quantity":1}]
+    },
+    "outofrange_prod":{
+        "userId":5,
+        "date":"2020-02-03",
+        "products":[{"productId":5, "quantity":10004543}]
+    },
+    "valid_invalid":{
+        "userId":5,
+        "date":"2020-02-03",
+        "products":[{"productId":5, "quantity":1},
+                    {"productId":197,"quantity":3827598327}]
+    }
+}

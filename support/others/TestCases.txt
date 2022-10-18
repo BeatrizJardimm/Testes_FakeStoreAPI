@@ -64,35 +64,38 @@ DONE - TC40: Delete a non-existent product -- (DELETE404)
 /CART (42 tests) carts_tests.robot
 
 ** GET **
-TC41: List the details of all carts -- (GET200.1)
-TC42: List the details of a specific cart -- (GET200.2)
-TC43: List a non-existent cart --
-TC44: List the details of a limited quantity of carts -- (GET200.3)
-TC45: List the details of an out of range quantity of carts --
-TC46: List all carts sorted (decreasing ID) -- (GET200.4)
-TC47: Pass an invalid parameter for "sort" --
-TC48: List all carts criated in a certain date -- (GET200.5)
-TC49: List all carts criated in a future date --
-TC50: List all carts criated in a very old date --
-TC50: List the carts of a user that has carts -- (GET200.6)
-TC51: List the carts of a user that doesn't have carts --
-TC52: List the carts of a non-existent user --
+DONE - TC41: List the details of all carts -- (GET200.1)
+DONE - TC42: List the details of a specific cart -- (GET200.2)
+DONE - TC43: List a non-existent cart -- (GET404.1)
+DONE - TC44: List the details of a limited quantity of carts -- (GET200.3)
+DONE - TC45: List the details of an out of range quantity of carts -- (GET404.2)
+DONE - TC46: List all carts sorted (decreasing ID) -- (GET200.4)
+DONE - TC47: Pass an invalid parameter for "sort" -- (GET400.1)
+DONE - TC48: List all carts created in a certain date range -- (GET200.5)
+DONE - List all carts created since a certain date -- (GET200.6)
+DONE - List all cart created until a certain date -- (GET200.7)
+DONE - TC49: List all carts created in a future date -- (GET400.2)
+DONE - TC50: List all carts created in a very old date -- (GET400.3)
+DONE - TC50: List the carts of a user that has carts -- (GET200.6)
+DONE - TC51: List the carts of a user that doesn't have carts -- (GET404.3)
+DONE - TC52: List the carts of a non-existent user -- (GET404.4)
 
 ** POST **
 TC53: Add a product to a cart -- (POST201)
-TC54: Add a product that's already in a cart --
-TC55: Add a product to a cart of a non-existent user --
-TC56: Add a product to a cart with an empty userId --
-TC57: Add a product to a cart with an invalid date --
-TC58: Add a product to a cart with an empty date --
-TC59: Add an empty product to a cart --
-TC60: Add a product to a cart with an invalid ID --
-TC61: Add a product to a cart with an out-of-range quantity --
-TC62: Add a valid and an invalid product to a cart at the same time --
+TC55: Add a product to a cart of a non-existent user -- (POST404.1)
+Post a cart to a user that already has a cart --
+TC56: Add a product to a cart with an empty userId -- (POST400.2)
+TC57: Add a product to a cart with an invalid date -- (POST400.3)
+TC58: Add a product to a cart with an empty date -- (POST400.4)
+TC59: Add an empty product to a cart -- (POST400.5)
+TC60: Add a product to a cart with an invalid ID -- (POST400.6)
+TC61: Add a product to a cart with an out-of-range quantity -- (POST400.7)
+TC62: Add a valid and an invalid product to a cart at the same time -- (POST400.8)
 
 ** PUT **
 TC63: Update the details of a product in a cart using PUT request -- (PUT200)
 TC24: Add a new product using PUT request -- (PUT201)
+TC54: Add a product that's already in the cart -- 
 TC65: Update the details of a product in a cart with a non-existent user using PUT request --
 TC66: Update the details of a product in a cart with an empty userId using PUT request --
 TC67: Update the details of a product in a cart with an invalid date using PUT request --

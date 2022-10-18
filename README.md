@@ -22,3 +22,8 @@ Apparently this API doesn't handle errors correctly throughout the requests, but
 - When i try to delete a product that exists i get a 200 status in return, but i think the best practice here would be to return a 204 status, because that's the status we should get when we hhave a sucessfull request that does not return any content.
 
 - When i tr to delete a product that does not exist, i get a 200 status when i hsoud get a 404 status instead, because the path i typed on the endpoint is for an id that doesn't exist in the database
+
+
+*** /carts ***
+
+- When i try to get a cart by date following the API's documentation i get the error: "status":"error","message":"cart id should be provided" so it means that the documentation is wrong. The same thing happens with the other test cases based on the dates.

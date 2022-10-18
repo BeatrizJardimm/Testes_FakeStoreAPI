@@ -29,6 +29,7 @@ GET Id
 GET Quantity
     [Arguments]             ${endpoint}         ${quantity}
     ${response}             GET On Session      fakestore       url=${endpoint}?limit=${quantity}   expected_status=any
+    Log To Console          \n\n${response.content}
     Set Global Variable     ${response}
 
 GET Sort
