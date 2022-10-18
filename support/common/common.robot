@@ -10,9 +10,9 @@ Validate Status Code "${statuscode}"
     Log To Console          Status Code: ${response.status_code}\n
 
 Import Estatic JSON
-    [Arguments]             ${nome_arquivo}
-    ${arquivo}              Get File        ${EXECDIR}/../support/fixtures/static/${nome_arquivo}
-    &{data}                 Evaluate        json.loads('''${arquivo}''')    json
+    [Arguments]             ${file_name}
+    ${file}                 Get File        ${EXECDIR}/../support/fixtures/static/${file_name}
+    &{data}                 Evaluate        json.loads('''${file}''')    json
     [return]                ${data}
 
 GET Endpoint

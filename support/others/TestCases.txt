@@ -34,32 +34,32 @@ DONE - TC17: Add a product with an empty image -- (POST400.6)
 DONE - TC18: Add a product with an empty category -- (POST400.7)
 
 ** PUT **
-TC19: Update a product using PUT request -- (PUT200)
-TC20: Add a new product using PUT request -- (PUT201)
-TC21: Update a non-existent product using PUT request --
-TC22: Update a product with a title that already exists using PUT request --
-TC23: Update a product to an empty product using PUT request --
-TC24: Update a product with an empty title using PUT request --
-TC25: Update a product with an empty price using PUT request --
-TC26: Update a product with an empty description using PUT request --
-TC27: Update a product with an empty image using PUT request --
-TC28: Update a product with an empty category using PUT request --
+DONE - TC19: Update a product using PUT request -- (PUT200)
+DONE - TC20: Add a new product using PUT request -- (PUT201)
+DONE -  TC21: Update a product without passing the id in the endpoint using PUT request -- (PUT404)
+DONE - TC22: Update a product with a title that already exists using PUT request -- (PUT400.1)
+DONE - TC23: Update a product to an empty product using PUT request -- (PUT400.2)
+DONE - TC24: Update a product with an empty title using PUT request -- (PUT400.3)
+DONE - TC25: Update a product with an empty price using PUT request -- (PUT400.4)
+DONE - TC26: Update a product with an empty description using PUT request -- (PUT400.5)
+DONE - TC27: Update a product with an empty image using PUT request -- (PUT400.6)
+DONE - TC28: Update a product with an empty category using PUT request -- (PUT400.7)
 
 ** PATCH **
-TC29: Update a product using PATCH request -- (PATCH200)
-TC30: Add a new product using PATCH request -- (PATCH201)
-TC31: Update a non-exstent product using PATCH request --
-TC32: Update a product with a title that already exists using PATCH request --
-TC33: Update a product to an empty product using PATCH request --
-TC34: Update a product with an empty title using PATCH request --
-TC35: Update a product with an empty price using PATCH request --
-TC36: Update a product with an empty description using PATCH request --
-TC37: Update a product with an empty image using PATCH request --
-TC38: Update a product with an empty category using PATCH request --
+DONE - TC29: Update a product using PATCH request -- (PATCH200)
+DONE - TC30: Add a new product using PATCH request -- (PATCH201)
+DONE - TC31: Update a product without passing the id in the endpoint using PATCH request -- (PATCH404)
+DONE - TC32: Update a product with a title that already exists using PATCH request -- (PATCH400.1)
+DONE - TC33: Update a product to an empty product using PATCH request -- (PATCH400.2)
+DONE - TC34: Update a product with an empty title using PATCH request -- (PATCH400.3)
+DONE - TC35: Update a product with an empty price using PATCH request -- (PATCH400.4)
+DONE - TC36: Update a product with an empty description using PATCH request -- (PATCH400.5)
+DONE - TC37: Update a product with an empty image using PATCH request -- (PATCH400.6)
+DONE - TC38: Update a product with an empty category using PATCH request -- (PATCH400.7)
 
 ** DELETE **
-TC39: Delete a product -- (DELETE200)
-TC40: Delete a non-existent product --
+DONE - TC39: Delete a product -- (DELETE200)
+DONE - TC40: Delete a non-existent product -- (DELETE404)
 
 /CART (42 tests) carts_tests.robot
 
