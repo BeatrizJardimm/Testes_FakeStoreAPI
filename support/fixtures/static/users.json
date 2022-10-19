@@ -1,0 +1,164 @@
+{
+    "valid_user":{
+        "email":"newuser@gmail.com",
+        "username":"NewUser123",
+        "password":"123$abc",
+        "name":{
+            "firstname":"Test",
+            "lastname":"User"
+        },
+        "address":{
+            "city":"New York",
+            "street":"Cornelia Street",
+            "number":13,
+            "zipcode":"12926-3874",
+            "geolocation":{
+                "lat":"-37.3159",
+                "long":"81.1496"
+            }
+        },
+        "phone":"1-234-567-8910"
+    },
+    "unavaliable_email":{
+        "email":"john@gmail.com",
+        "username":"NewUser123",
+        "password":"123$abc",
+        "name":{
+            "firstname":"Test",
+            "lastname":"User"
+        },
+        "address":{
+            "city":"New York",
+            "street":"Cornelia Street",
+            "number":13,
+            "zipcode":"12926-3874",
+            "geolocation":{
+                "lat":"-37.3159",
+                "long":"81.1496"
+            }
+        },
+        "phone":"1-234-567-8910"
+    },
+    "unavaliable_username":{
+        "email":"newuser@gmail.com",
+        "username":"johnd",
+        "password":"123$abc",
+        "name":{
+            "firstname":"Test",
+            "lastname":"User"
+        },
+        "address":{
+            "city":"New York",
+            "street":"Cornelia Street",
+            "number":13,
+            "zipcode":"12926-3874",
+            "geolocation":{
+                "lat":"-37.3159",
+                "long":"81.1496"
+            }
+        },
+        "phone":"1-234-567-8910"
+    },
+    "empty_email":{
+        "username":"NewUser123",
+        "password":"123$abc",
+        "name":{
+            "firstname":"Test",
+            "lastname":"User"
+        },
+        "address":{
+            "city":"New York",
+            "street":"Cornelia Street",
+            "number":13,
+            "zipcode":"12926-3874",
+            "geolocation":{
+                "lat":"-37.3159",
+                "long":"81.1496"
+            }
+        },
+        "phone":"1-234-567-8910"
+    },
+    "empty_username":{
+        "email":"newuser@gmail.com",
+        "password":"123$abc",
+        "name":{
+            "firstname":"Test",
+            "lastname":"User"
+        },
+        "address":{
+            "city":"New York",
+            "street":"Cornelia Street",
+            "number":13,
+            "zipcode":"12926-3874",
+            "geolocation":{
+                "lat":"-37.3159",
+                "long":"81.1496"
+            }
+        },
+        "phone":"1-234-567-8910"
+    },
+    "empty_password":{
+        "email":"newuser@gmail.com",
+        "username":"NewUser123",
+        "name":{
+            "firstname":"Test",
+            "lastname":"User"
+        },
+        "address":{
+            "city":"New York",
+            "street":"Cornelia Street",
+            "number":13,
+            "zipcode":"12926-3874",
+            "geolocation":{
+                "lat":"-37.3159",
+                "long":"81.1496"
+            }
+        },
+        "phone":"1-234-567-8910"
+    },
+    "empty_name":{
+        "email":"newuser@gmail.com",
+        "username":"NewUser123",
+        "password":"123$abc",
+        "address":{
+            "city":"New York",
+            "street":"Cornelia Street",
+            "number":13,
+            "zipcode":"12926-3874",
+            "geolocation":{
+                "lat":"-37.3159",
+                "long":"81.1496"
+            }
+        },
+        "phone":"1-234-567-8910"
+    },
+    "empty_address":{
+        "email":"newuser@gmail.com",
+        "username":"NewUser123",
+        "password":"123$abc",
+        "name":{
+            "firstname":"Test",
+            "lastname":"User"
+        },
+        "phone":"1-234-567-8910"
+    },
+    "empty_phone":{
+        "email":"newuser@gmail.com",
+        "username":"NewUser123",
+        "password":"123$abc",
+        "name":{
+            "firstname":"Test",
+            "lastname":"User"
+        },
+        "address":{
+            "city":"New York",
+            "street":"Cornelia Street",
+            "number":13,
+            "zipcode":"12926-3874",
+            "geolocation":{
+                "lat":"-37.3159",
+                "long":"81.1496"
+            }
+        }
+    }
+}

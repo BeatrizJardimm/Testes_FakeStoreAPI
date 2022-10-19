@@ -125,50 +125,50 @@ DONE - TC84: Delete a non-existent cart -- (DELETE404)
 ** GET **
 TC85: List all users -- (GET200.1)
 TC86: List the details of a specific user -- (GET200.2)
-TC87: List a non-existent user --
+TC87: List a non-existent user -- (GET404.1)
 TC88: List the details of a limited quantity of users -- (GET200.3)
-TC89: List the details of an out of range quantity of users --
+TC89: List the details of an out of range quantity of users -- (GET404.2)
 TC90: List all users sorted (decreasing ID) -- (GET200.4)
-TC91: Pass an invalid parameter for "sort" --
+TC91: Pass an invalid parameter for "sort" -- (GET404.3)
 
 ** POST **
 TC92: Create a new user -- (POST201)
-TC93: Create a new user with an email that already exists
-TC94: Create a new user with a username that already exists
-TC95: Create a new user with an empty email
-TC96: Create a new user with an empty username
-TC97: Create a new user with an empty password
-TC98: Create a new user with an empty parameter in 'name'
-TC99: Create a new user with an empty parameter in 'address'
-TC100: Create a new user with an empty phone
+TC93: Create a new user with an email that already exists -- (POST400.1)
+TC94: Create a new user with a username that already exists -- (POST400.2)
+TC95: Create a new user with an empty email -- (POST400.3)
+TC96: Create a new user with an empty username -- (POST400.4)
+TC97: Create a new user with an empty password -- (POST400.5)
+TC98: Create a new user with an empty parameter in 'name' -- (POST400.6)
+TC99: Create a new user with an empty parameter in 'address' -- (POST400.7)
+TC100: Create a new user with an empty phone -- (POST400.8)
 
 ** PUT **
 TC101: Update a user using PUT request -- (PUT200)
 TC102: Add a user using PUT request -- (PUT201)
-TC103: Update a user with an email that already exists using PUT request
-TC104: Update a user with a username that already exists using PUT request
-TC105: Update a user with an empty email using PUT request
-TC106: Update a user with an empty username using PUT request
-TC107: Update a user with an empty password using PUT request
-TC108: Update a user with an empty parameter in 'name' using PUT request
-TC109: Update a user with an empty parameter in 'address' using PUT request
-TC110: Update a user with an empty phone using PUT request
+TC103: Update a user with an email that already exists using PUT request -- (PUT400.1)
+TC104: Update a user with a username that already exists using PUT request -- (PUT400.2)
+TC105: Update a user with an empty email using PUT request -- (PUT400.3)
+TC106: Update a user with an empty username using PUT request -- (PUT400.4)
+TC107: Update a user with an empty password using PUT request -- (PUT400.5)
+TC108: Update a user with an empty parameter in 'name' using PUT request -- (PUT400.6)
+TC109: Update a user with an empty parameter in 'address' using PUT request -- (PUT400.7)
+TC110: Update a user with an empty phone using PUT request -- (PUT400.8)
 
 ** PATCH **
 TC111: Update a user using PATCH request -- (PATCH200)
 TC112: Add a user using PATCH request -- (PATCH201)
-TC113: Update a user with an email that already exists using PATCH request
-TC114: Update a user with a username that already exists using PATCH request
-TC115: Update a user with an empty email using PATCH request
-TC116: Update a user with an empty username using PATCH request
-TC117: Update a user with an empty password using PATCH request
-TC118: Update a user with an empty parameter in 'name' using PATCH request
-TC119: Update a user with an empty parameter in 'address' using PATCH request
-TC120: Update a user with an empty phone using PATCH request
+TC113: Update a user with an email that already exists using PATCH request -- (PATCH400.1)
+TC114: Update a user with a username that already exists using PATCH request -- (PATCH400.2)
+TC115: Update a user with an empty email using PATCH request -- (PATCH400.3)
+TC116: Update a user with an empty username using PATCH request -- (PATCH400.4)
+TC117: Update a user with an empty password using PATCH request -- (PATCH400.5)
+TC118: Update a user with an empty parameter in 'name' using PATCH request -- (PATCH400.6)
+TC119: Update a user with an empty parameter in 'address' using PATCH request -- (PATCH400.7)
+TC120: Update a user with an empty phone using PATCH request -- (PATCH400.8)
 
 ** DELETE **
-TC121: Delete a user -- (DELETE200)
-TC122: Delete a non-existent user
+TC121: Delete a user -- (DELETE204)
+TC122: Delete a non-existent user -- (DELETE404)
 
 /LOGIN (5 tests) login_tests.robot
 
