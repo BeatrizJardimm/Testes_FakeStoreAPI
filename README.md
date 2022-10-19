@@ -27,3 +27,10 @@ Apparently this API doesn't handle errors correctly throughout the requests, but
 *** /carts ***
 
 - When i try to get a cart by date following the API's documentation i get the error: "status":"error","message":"cart id should be provided" so it means that the documentation is wrong. The same thing happens with the other test cases based on the dates.
+
+- The errors i encountered in this endpoint are the same for /products
+
+
+*** /login ***
+
+- When trying to login without a username or without a password, instead of returning a 400 error, the api gets into a loop and, after a while, returns a 524 runtime error because of the loop in the server. So i commented the test cases for these cenaries.

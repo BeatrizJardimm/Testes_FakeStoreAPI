@@ -1,0 +1,20 @@
+{
+    "valid_login":{
+        "username": "johnd",
+        "password": "m38rmF$"
+    },
+    "without_username":{
+        "password": "83r5^_"
+    },
+    "without_password":{
+        "username": "johnd"
+    },
+    "invalid_username":{
+        "username": "invalid",
+        "password": "83r5^_"
+    },
+    "invalid_password":{
+        "username": "johnd",
+        "password": "83r5^_"
+    }
+}

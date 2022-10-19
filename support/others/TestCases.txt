@@ -173,20 +173,20 @@ TC122: Delete a non-existent user
 /LOGIN (5 tests) login_tests.robot
 
 ** POST **
-TC123: Login a user -- (LOGIN200)
-TC124: Login a user without passing the username
-TC125: Login a user without passing the password
-TC126: Login a user with the wrong password
-TC127: Login a non-existent user
+DONE - TC123: Login a user -- (POST200)
+DONE - TC124: Login a user without passing the username -- (POST400.1)
+DONE - TC125: Login a user without passing the password -- (POST400.2)
+DONE - TC127: Login a invalid username -- (POST401.1)
+DONE - TC126: Login a user with the wrong password -- (POST401.2)
 
 ** GET **
-test GET request at /login
+DONE - test GET request at /login -- (GET404)
 
 ** PUT **
-test PUT requst at /login 
+DONE - test PUT requst at /login -- (PUT404)
 
 ** PATCH ** 
-test PATCH request at /login 
+DONE - test PATCH request at /login -- (PATCH404)
 
 ** DELETE **
-test DELETE request at /login
+DONE - test DELETE request at /login -- (DELETE404)
