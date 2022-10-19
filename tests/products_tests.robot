@@ -112,61 +112,61 @@ Cenary: POST Product Without Category 400
 Cenary: PUT Update Product 200
     [tags]      PUT200
     Pick A Static Product    valid_product
-    PUT Endpoint /products
+    PUT Update Endpoint /products
     Validate Status Code "200"
 
 Cenary: PUT Update Non-Existent Product 201
     [tags]    PUT201
     Pick A Static Product    valid_product
-    PUT Non-Existent Endpoint /products
+    PUT New Endpoint /products
     Validate Status Code "201"
 
-Cenary: PUT Product Without Id In The Endpoint 404
+Cenary: PUT Product Without Id 404
     [tags]      PUT404
     Pick A Static Product    valid_product
-    PUT Create Endpoint /products
+    PUT Update Invalid Endpoint /products
     Validate Status Code "404"
 
 Cenary: PUT Product With Already Existent Title 400
     [tags]    PUT400.1
     Pick A Static Product    invalid_product
-    PUT Endpoint /products
+    PUT Update Endpoint /products
     Validate Status Code "400"
 
 Cenary: PUT With Empty Product 400
     [tags]    PUT400.2
     Pick A Static Product    empty_product
-    PUT Endpoint /products
+    PUT Update Endpoint /products
     Validate Status Code "400"
 
 Cenary: PUT Empty Title 400
     [tags]    PUT400.3
     Pick A Static Product    empty_title
-    PUT Endpoint /products
+    PUT Update Endpoint /products
     Validate Status Code "400"
 
 Cenary: PUT Empty Price 400
     [tags]    PUT400.4
     Pick A Static Product    empty_price
-    PUT Endpoint /products
+    PUT Update Endpoint /products
     Validate Status Code "400"
 
 Cenary: PUT Empty Description 400
     [tags]    PUT400.5
     Pick A Static Product    empty_description
-    PUT Endpoint /products
+    PUT Update Endpoint /products
     Validate Status Code "400"
 
 Cenary: PUT Empty Image 400
     [tags]    PUT400.6
     Pick A Static Product    empty_image
-    PUT Endpoint /products
+    PUT Update Endpoint /products
     Validate Status Code "400"
 
 Cenary: PUT Empty Category 400
     [tags]    PUT400.7
     Pick A Static Product    empty_category
-    PUT Endpoint /products
+    PUT Update Endpoint /products
     Validate Status Code "400"
 
 # ----------------------- PATCH -----------------------
@@ -174,62 +174,64 @@ Cenary: PUT Empty Category 400
 Cenary: PATCH Update Product 200
     [tags]      PATCH200
     Pick A Static Product    valid_product
-    PATCH Endpoint /products
+    PATCH Update Endpoint /products
     Validate Status Code "200"
 
 Cenary: PATCH Update Non-Existent Product 201
     [tags]    PATCH201
     Pick A Static Product    valid_product
-    PATCH Non-Existent Endpoint /products
+    PATCH New Endpoint /products
     Validate Status Code "201"
 
 Cenary: PATCH Product Without Id In The Endpoint 404
     [tags]      PATCH404
     Pick A Static Product    valid_product
-    PATCH Create Endpoint /products
+    PATCH Update Invalid Endpoint /products
     Validate Status Code "404"
 
 Cenary: PATCH Product With Already Existent Title 400
     [tags]    PATCH400.1
     Pick A Static Product    invalid_product
-    PATCH Endpoint /products
+    PATCH Update Endpoint /products
     Validate Status Code "400"
 
 Cenary: PATCH With Empty Product 400
     [tags]    PATCH400.2
     Pick A Static Product    empty_product
-    PATCH Endpoint /products
+    PATCH Update Endpoint /products
     Validate Status Code "400"
 
 Cenary: PATCH Empty Title 400
     [tags]    PATCH400.3
     Pick A Static Product    empty_title
-    PATCH Endpoint /products
+    PATCH Update Endpoint /products
     Validate Status Code "400"
 
 Cenary: PATCH Empty Price 400
     [tags]    PATCH400.4
     Pick A Static Product    empty_price
-    PATCH Endpoint /products
+    PATCH Update Endpoint /products
     Validate Status Code "400"
 
 Cenary: PATCH Empty Description 400
     [tags]    PATCH400.5
     Pick A Static Product    empty_description
-    PATCH Endpoint /products
+    PATCH Update Endpoint /products
     Validate Status Code "400"
 
 Cenary: PATCH Empty Image 400
     [tags]    PATCH400.6
     Pick A Static Product    empty_image
-    PATCH Endpoint /products
+    PATCH Update Endpoint /products
     Validate Status Code "400"
 
 Cenary: PATCH Empty Category 400
     [tags]    PATCH400.7
     Pick A Static Product    empty_category
-    PATCH Endpoint /products
+    PATCH Update Endpoint /products
     Validate Status Code "400"
+
+# ----------------------- DELETE -----------------------
 
 Cenary: DELETE Product 200
     [tags]    DELETE200

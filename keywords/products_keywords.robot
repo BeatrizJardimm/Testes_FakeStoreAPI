@@ -24,28 +24,28 @@ POST Endpoint /products
     ${response}             Post On Session         fakestore       /products       json=${payload}         expected_status=any
     Set Global Variable     ${response}
 
-PUT Endpoint /products
+PUT Update Endpoint /products
     ${response}             Put On Session         fakestore       /products/13       json=${payload}         expected_status=any
     Set Global Variable     ${response}
 
-PUT Create Endpoint /products
+PUT Update Invalid Endpoint /products
     ${response}             Put On Session         fakestore       /products          json=${payload}         expected_status=any
     Set Global Variable     ${response}
 
-PUT Non-Existent Endpoint /products
+PUT New Endpoint /products
     ${response}             Put On Session         fakestore       /products/84       json=${payload}         expected_status=any
     Set Global Variable     ${response}
     Log To Console          \n${response.content}\n"It Creates a new product at the given id"
 
-PATCH Endpoint /products
+PATCH Update Endpoint /products
     ${response}             Patch On Session         fakestore       /products/13       json=${payload}         expected_status=any
     Set Global Variable     ${response}
 
-PATCH Create Endpoint /products
+PATCH Update Invalid Endpoint /products
     ${response}             Patch On Session         fakestore       /products          json=${payload}         expected_status=any
     Set Global Variable     ${response}
 
-PATCH Non-Existent Endpoint /products
+PATCH New Endpoint /products
     ${response}             Patch On Session         fakestore       /products/84       json=${payload}         expected_status=any
     Set Global Variable     ${response}
     Log To Console          \n${response.content}\n"It Creates a new product at the given id"

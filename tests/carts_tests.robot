@@ -86,50 +86,196 @@ Cenary: GET Carts Of a User That Doesn't Exist 404
 
 Cenary: POST A Product To A Cart 201
     [tags]        POST201
-    POST Endpoint /carts    valid_cart
+    Pick A Static Cart   valid_cart
+    POST Endpoint /carts
     Validate Status Code "201"
 
 Cenary: POST A Product To A Cart Of An Non-Existing User 404
     [tags]        POST404.1
-    POST Endpoint /carts    nonexistent_user
+    Pick A Static Cart    nonexistent_user
+    POST Endpoint /carts
     Validate Status Code "404"
 
 Cenary: POST A Cart To a User That Already Has A Cart 400
     [tags]        POST400.1
-    POST Endpoint /carts    has_cart_user
+    Pick A Static Cart    has_cart_user
+    POST Endpoint /carts
     Validate Status Code "400"
 
 Cenary: POST A Product To A Cart With An Empty User Id 400
     [tags]        POST400.2
-    POST Endpoint /carts    empty_user
+    Pick A Static Cart    empty_user
+    POST Endpoint /carts
     Validate Status Code "400"
 
 Cenary: POST A Product To A Cart With An Invalid Date 400
     [tags]        POST400.3
-    POST Endpoint /carts    invalid_date
+    Pick A Static Cart    invalid_date
+    POST Endpoint /carts
     Validate Status Code "400"
 
 Cenary: POST A Product To A Cart With An Empty Date 400
     [tags]        POST400.4
-    POST Endpoint /carts    empty_date
+    Pick A Static Cart    empty_date
+    POST Endpoint /carts
     Validate Status Code "400"
 
 Cenary: POST An Empty Product To A Cart 400
     [tags]        POST400.5
-    POST Endpoint /carts    empty_product
+    Pick A Static Cart    empty_product
+    POST Endpoint /carts
     Validate Status Code "400"
 
 Cenary: POST A Product With Invalid Id To A Cart 400
     [tags]        POST400.6
-    POST Endpoint /carts    invalid_id
+    Pick A Static Cart    invalid_id
+    POST Endpoint /carts
     Validate Status Code "400"
 
-Cenary: POST An Out-Of_range Quantity Of Products To A Cart 400
+Cenary: POST An Out-Of-Range Quantity Of Products To A Cart 400
     [tags]        POST400.7
-    POST Endpoint /carts    outofrange_prod
+    Pick A Static Cart    outofrange_prod
+    POST Endpoint /carts
     Validate Status Code "400"
 
 Cenary: POST Valid And Invalid Products At The Same Time 400
     [tags]        POST400.8
-    POST Endpoint /carts    valid_invalid
+    Pick A Static Cart    valid_invalid
+    POST Endpoint /carts
     Validate Status Code "400"
+
+# --------------------------- PUT --------------------------
+
+Cenary: PUT Update A Cart 200
+    [tags]        PUT200
+    Pick A Static Cart    valid_cart
+    PUT Update Endpoint /carts
+    Validate Status Code "200"
+
+Cenary: PUT Create Cart 201
+    [tags]        PUT201
+    Pick A Static Cart    valid_cart
+    PUT New Endpoint /carts
+    Validate Status Code "201"
+
+Cenary: PUT Update Cart With Invalid User Id 400
+    [tags]        PUT400.1
+    Pick A Static Cart    nonexistent_user
+    PUT Update Endpoint /carts
+    Validate Status Code "400"
+
+Cenary: PUT Update Cart With Empty User Id 400
+    [tags]        PUT400.2
+    Pick A Static Cart    empty_user
+    PUT Update Endpoint /carts
+    Validate Status Code "400"
+
+Cenary: PUT Update Cart With Invalid Date 400
+    [tags]        PUT400.3
+    Pick A Static Cart    invalid_date
+    PUT Update Endpoint /carts
+    Validate Status Code "400"
+
+Cenary: PUT Update Cart With Empty Date 400
+    [tags]        PUT400.4
+    Pick A Static Cart    empty_date
+    PUT Update Endpoint /carts
+    Validate Status Code "400"
+
+Cenary: PUT Update Cart With Empty Product 400
+    [tags]        PUT400.5
+    Pick A Static Cart    empty_product
+    PUT Update Endpoint /carts
+    Validate Status Code "400"
+
+Cenary: PUT Update Cart Without Id 404
+    [tags]        PUT404
+    Pick A Static Cart    valid_cart
+    PUT Update Invalid Endpoint /carts
+    Validate Status Code "404"
+
+Cenary: PUT Update Cart With Out-Of-range Quantity Of Products 400
+    [tags]        PUT400.6
+    Pick A Static Cart    outofrange_prod
+    PUT Update Endpoint /carts
+    Validate Status Code "400"
+
+Cenary: PUT Update Cart With Valid And Invalid Products At The Same Time 400
+    [tags]        PUT400.7
+    Pick A Static Cart    valid_invalid
+    PUT Update Endpoint /carts
+    Validate Status Code "400"
+
+# --------------------------- PATCH --------------------------
+
+Cenary: PATCH Update A Cart 200
+    [tags]        PATCH200
+    Pick A Static Cart    valid_cart
+    PATCH Update Endpoint /carts
+    Validate Status Code "200"
+
+Cenary: PATCH Create Cart 201
+    [tags]        PATCH201
+    Pick A Static Cart    valid_cart
+    PATCH New Endpoint /carts
+    Validate Status Code "201"
+
+Cenary: PATCH Update Cart With Invalid User Id 400
+    [tags]        PATCH400.1
+    Pick A Static Cart    nonexistent_user
+    PATCH Update Endpoint /carts
+    Validate Status Code "400"
+
+Cenary: PATCH Update Cart With Empty User Id 400
+    [tags]        PATCH400.2
+    Pick A Static Cart    empty_user
+    PATCH Update Endpoint /carts
+    Validate Status Code "400"
+
+Cenary: PATCH Update Cart With Invalid Date 400
+    [tags]        PATCH400.3
+    Pick A Static Cart    invalid_date
+    PATCH Update Endpoint /carts
+    Validate Status Code "400"
+
+Cenary: PATCH Update Cart With Empty Date 400
+    [tags]        PATCH400.4
+    Pick A Static Cart    empty_date
+    PATCH Update Endpoint /carts
+    Validate Status Code "400"
+
+Cenary: PATCH Update Cart With Empty Product 400
+    [tags]        PATCH400.5
+    Pick A Static Cart    empty_product
+    PATCH Update Endpoint /carts
+    Validate Status Code "400"
+
+Cenary: PATCH Update Cart Without Id 404
+    [tags]        PATCH404
+    Pick A Static Cart    valid_cart
+    PATCH Update Invalid Endpoint /carts
+    Validate Status Code "404"
+
+Cenary: PATCH Update Cart With Out-Of-range Quantity Of Products 400
+    [tags]        PATCH400.6
+    Pick A Static Cart    outofrange_prod
+    PATCH Update Endpoint /carts
+    Validate Status Code "400"
+
+Cenary: PATCH Update Cart With Valid And Invalid Products At The Same Time 400
+    [tags]        PATCH400.7
+    Pick A Static Cart    valid_invalid
+    PATCH Update Endpoint /carts
+    Validate Status Code "400"
+
+# --------------------------- DELETE --------------------------
+
+Cenary: DELETE Cart 204
+    [tags]        DELETE204
+    DELETE Endpoint /carts    2
+    Validate Status Code "204"
+
+Cenary: DELETE Cart With Invalid Id 404
+    [tags]        DELETE404
+    DELETE Endpoint /carts    36
+    Validate Status Code "404"

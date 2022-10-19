@@ -81,45 +81,44 @@ DONE - TC51: List the carts of a user that doesn't have carts -- (GET404.3)
 DONE - TC52: List the carts of a non-existent user -- (GET404.4)
 
 ** POST **
-TC53: Add a product to a cart -- (POST201)
-TC55: Add a product to a cart of a non-existent user -- (POST404.1)
-Post a cart to a user that already has a cart --
-TC56: Add a product to a cart with an empty userId -- (POST400.2)
-TC57: Add a product to a cart with an invalid date -- (POST400.3)
-TC58: Add a product to a cart with an empty date -- (POST400.4)
-TC59: Add an empty product to a cart -- (POST400.5)
-TC60: Add a product to a cart with an invalid ID -- (POST400.6)
-TC61: Add a product to a cart with an out-of-range quantity -- (POST400.7)
-TC62: Add a valid and an invalid product to a cart at the same time -- (POST400.8)
+DONE - TC53: Add a product to a cart -- (POST201)
+DONE - TC55: Add a product to a cart of a non-existent user -- (POST404.1)
+DONE - Post a cart to a user that already has a cart --
+DONE - TC56: Add a product to a cart with an empty userId -- (POST400.2)
+DONE - TC57: Add a product to a cart with an invalid date -- (POST400.3)
+DONE - TC58: Add a product to a cart with an empty date -- (POST400.4)
+DONE - TC59: Add an empty product to a cart -- (POST400.5)
+DONE - TC60: Add a product to a cart with an invalid ID -- (POST400.6)
+DONE - TC61: Add a product to a cart with an out-of-range quantity -- (POST400.7)
+DONE - TC62: Add a valid and an invalid product to a cart at the same time -- (POST400.8)
 
 ** PUT **
-TC63: Update the details of a product in a cart using PUT request -- (PUT200)
-TC24: Add a new product using PUT request -- (PUT201)
-TC54: Add a product that's already in the cart -- 
-TC65: Update the details of a product in a cart with a non-existent user using PUT request --
-TC66: Update the details of a product in a cart with an empty userId using PUT request --
-TC67: Update the details of a product in a cart with an invalid date using PUT request --
-TC68: Update the details of a product in a cart with an empty date using PUT request -- 
-TC69: Update the details of a product in a cart with an empty product using PUT request --
-TC70: Update the details of a product in a cart with an invalid ID using PUT request --
-TC71: Update the details of a product in a cart with an out-of-range quantity using PUT request --
-TC72: Update the details of a product in a cart with a valid and an invalid product at the same time using PUT request --
+DONE - TC63: Updatea cart using PUT request -- (PUT200)
+DONE - TC24: Add a new cart using PUT request -- (PUT201)
+DONE - TC65: Update a cart with a non-existent user using PUT request -- (PUT400.1)
+DONE - TC66: Update a cart with an empty userId using PUT request -- (PUT400.2) 
+DONE - TC67: Update a cart with an invalid date using PUT request -- (PUT400.3)
+DONE - TC68: Update a cart with an empty date using PUT request -- (PUT400.4)
+DONE - TC69: Update a cart with an empty product using PUT request -- (PUT400.5)
+DONE - TC70: Update a cart without passing an ID using PUT request -- (PUT404)
+DONE - TC71: Update a cart with an out-of-range quantity using PUT request -- (PUT400.6)
+DONE - TC72: Update a cart with a valid and an invalid product at the same time using PUT request -- (PUT400.7)
 
 ** PATCH **
-TC73: Update the details of a product in a cart using PATCH request -- (PATCH200)
-TC74: Add a new product using PATCH request --(PATCH201)
-TC75: Update the details of a product in a cart with a non-existent user using PUT request -- 
-TC76: Update the details of a product in a cart with an empty userId using PUT request --
-TC77: Update the details of a product in a cart with an invalid date using PUT request --
-TC78: Update the details of a product in a cart with an empty date using PUT request --
-TC79: Update the details of a product in a cart with an empty product using PUT request --
-TC80: Update the details of a product in a cart with an invalid ID using PUT request --
-TC81: Update the details of a product in a cart with an out-of-range quantity using PUT request --
-TC82: Update the details of a product in a cart with a valid and an invalid product at the same time using PUT request --
+DONE - TC73: Update a cart using PATCH request -- (PATCH200)
+DONE - TC74: Add a new cart using PATCH request --(PATCH201)
+DONE - TC75: Update a cart with a non-existent user using PATCH request -- (PATCH400.1)
+DONE - TC76: Update a cart with an empty userId using PATCH request -- (PATCH400.2)
+DONE - TC77: Update a cart with an invalid date using PATCH request -- (PATCH400.3)
+DONE - TC78: Update a cart with an empty date using PATCH request -- (PATCH400.4)
+DONE - TC79: Update a cart with an empty product using PATCH request -- (PATCH400.5)
+DONE - TC80: Update a cart without passing an ID using PATCH request -- (PATCH404)
+DONE - TC81: Update a cart with an out-of-range quantity using PATCH request -- (PATCH400.6)
+DONE - TC82: Update a cart with a valid and an invalid product at the same time using PATCH request -- (PATCH400.7)
 
 ** DELETE **
-TC83: Delete a cart -- (DELETE200)
-TC84: Delete a non-existent cart --
+DONE - TC83: Delete a cart -- (DELETE204)
+DONE - TC84: Delete a non-existent cart -- (DELETE404)
 
 /USERS (36 tests) users_tests.robot
 
@@ -179,3 +178,15 @@ TC124: Login a user without passing the username
 TC125: Login a user without passing the password
 TC126: Login a user with the wrong password
 TC127: Login a non-existent user
+
+** GET **
+test GET request at /login
+
+** PUT **
+test PUT requst at /login 
+
+** PATCH ** 
+test PATCH request at /login 
+
+** DELETE **
+test DELETE request at /login
