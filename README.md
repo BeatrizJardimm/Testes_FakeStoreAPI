@@ -1,5 +1,6 @@
 ## Notes while developing:
 
+While i was developing the Test Cases for this API, i encountered an awful lot of errors. 
 
 *** /products ***
 

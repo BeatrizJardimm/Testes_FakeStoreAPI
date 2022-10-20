@@ -1,73 +1,677 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.8.2 on win32)" generated="20221020 12:00:50.834" rpa="false" schemaversion="3">
-<suite id="s1" name="Carts Tests" source="C:\Users\paula.jardim\Testes_FakeStoreAPI\tests\carts_tests.robot">
+<robot generator="Robot 5.0.1 (Python 3.8.2 on win32)" generated="20221020 16:16:06.766" rpa="false" schemaversion="3">
+<suite id="s1" name="Login Tests" source="C:\Users\paula.jardim\Testes_FakeStoreAPI\tests\login_tests.robot">
 <kw name="Initialize Session" library="base" type="SETUP">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>fakestore</arg>
 <arg>${BASE_URI}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20221020 12:00:50.940" level="INFO">Creating Session using : alias=fakestore, url=https://fakestoreapi.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20221020 12:00:50.940" endtime="20221020 12:00:50.940"/>
+<msg timestamp="20221020 16:16:06.882" level="INFO">Creating Session using : alias=fakestore, url=https://fakestoreapi.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221020 16:16:06.882" endtime="20221020 16:16:06.882"/>
 </kw>
-<status status="PASS" starttime="20221020 12:00:50.940" endtime="20221020 12:00:50.940"/>
+<status status="PASS" starttime="20221020 16:16:06.882" endtime="20221020 16:16:06.882"/>
 </kw>
-<test id="s1-t1" name="Cenary: GET Carts With Just The End Date 200" line="55">
-<kw name="GET Cart By Date" library="carts_keywords">
-<arg>""</arg>
-<arg>2020-02-01</arg>
-<kw name="Log To Console" library="BuiltIn">
-<arg>\nGiven Start Date: ${start}\nGiven End Date: ${end}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20221020 12:00:50.940" endtime="20221020 12:00:50.940"/>
+<test id="s1-t1" name="Cenary: POST Login User 200" line="10">
+<kw name="Pick A Static Object" library="common">
+<arg>login.json</arg>
+<arg>valid_login</arg>
+<kw name="Import Estatic JSON" library="common">
+<var>${json}</var>
+<arg>${file_name}</arg>
+<kw name="Get File" library="OperatingSystem">
+<var>${file}</var>
+<arg>${EXECDIR}/../support/fixtures/static/${file_name}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20221020 16:16:06.882" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\paula.jardim\Testes_FakeStoreAPI\support\fixtures\static\login.json"&gt;C:\Users\paula.jardim\Testes_FakeStoreAPI\support\fixtures\static\login.json&lt;/a&gt;'.</msg>
+<msg timestamp="20221020 16:16:06.882" level="INFO">${file} = {
+    "valid_login":{
+        "username": "johnd",
+        "password": "m38rmF$"
+    },
+    "without_username":{
+        "password": "83r5^_"
+    },
+    "without_password":{
+        "username": "johnd...</msg>
+<status status="PASS" starttime="20221020 16:16:06.882" endtime="20221020 16:16:06.882"/>
 </kw>
-<kw name="GET On Session" library="RequestsLibrary">
+<kw name="Evaluate" library="BuiltIn">
+<var>&amp;{data}</var>
+<arg>json.loads('''${file}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221020 16:16:06.888" level="INFO">&amp;{data} = { valid_login={'username': 'johnd', 'password': 'm38rmF$'} | without_username={'password': '83r5^_'} | without_password={'username': 'johnd'} | invalid_username={'username': 'invalid', 'password': '83...</msg>
+<status status="PASS" starttime="20221020 16:16:06.882" endtime="20221020 16:16:06.888"/>
+</kw>
+<msg timestamp="20221020 16:16:06.888" level="INFO">${json} = {'valid_login': {'username': 'johnd', 'password': 'm38rmF$'}, 'without_username': {'password': '83r5^_'}, 'without_password': {'username': 'johnd'}, 'invalid_username': {'username': 'invalid', 'passwo...</msg>
+<status status="PASS" starttime="20221020 16:16:06.882" endtime="20221020 16:16:06.888"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${payload}</var>
+<arg>${json["${object}"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221020 16:16:06.888" level="INFO">${payload} = {'username': 'johnd', 'password': 'm38rmF$'}</msg>
+<status status="PASS" starttime="20221020 16:16:06.888" endtime="20221020 16:16:06.888"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${payload}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221020 16:16:06.888" level="INFO">${payload} = {'username': 'johnd', 'password': 'm38rmF$'}</msg>
+<status status="PASS" starttime="20221020 16:16:06.888" endtime="20221020 16:16:06.888"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:06.882" endtime="20221020 16:16:06.888"/>
+</kw>
+<kw name="POST Endpoint /login" library="login_keywords">
+<kw name="POST On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>fakestore</arg>
-<arg>url=/carts/startdate=${start}&amp;enddate=${end}</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20221020 12:00:51.621" level="INFO">GET Request : url=https://fakestoreapi.com/carts/startdate=%22%22&amp;enddate=2020-02-01 
- path_url=/carts/startdate=%22%22&amp;enddate=2020-02-01 
- headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
+<arg>url=/auth/login</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20221020 16:16:07.462" level="INFO">POST Request : url=https://fakestoreapi.com/auth/login 
+ path_url=/auth/login 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '44', 'Content-Type': 'application/json'} 
+ body=b'{"username": "johnd", "password": "m38rmF$"}' 
  </msg>
-<msg timestamp="20221020 12:00:51.621" level="INFO">GET Response : url=https://fakestoreapi.com/carts/startdate=%22%22&amp;enddate=2020-02-01 
- status=400, reason=Bad Request 
- headers={'Date': 'Thu, 20 Oct 2022 15:00:51 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '57', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"39-eWJKekXEKg16Sl+SzKMPamaRzT0"', 'X-Powered-By': 'Express', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=6nkxi2p121WQdBkOq9fdcn7BmCWsu8iJG75Ww%2FYWeCxJ74NXrwwZ%2Fsjjr0smhcx1o%2FPkL3DI7wFh3SiT%2BOXXSF3b6Xh8hIgS0QJV0Iofhr7jCZG%2FJiL2XIg%2BOg2t59K2gJ2v"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '75d2a01c79c4a52f-GRU', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
- body={"status":"error","message":"cart id should be provided"} 
+<msg timestamp="20221020 16:16:07.462" level="INFO">POST Response : url=https://fakestoreapi.com/auth/login 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 20 Oct 2022 19:16:07 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"94-oPSMGPxHzKFY/JGrDkrU5xgGEgk"', 'X-Powered-By': 'Express', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=EJGjevHSrIJdr%2BScbSwt8ts17gJ%2Budn1tmao63Lt%2BJ1Os1p%2BSWxEFPBUHjvDw6DB3Lz0%2Fpbhirs1Xuy4QaN0flnpLknyckD8VLaQTvIRb%2BTBE4gYYLGHlO508OMqlUzrR%2BPJ"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '75d416099b41a529-GRU', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body={"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXIiOiJqb2huZCIsImlhdCI6MTY2NjI5MzM2N30.AX5jCSYCQpsGzSbK3nT1VrfuqGjLq-krVUt_QetRntQ"} 
  </msg>
-<msg timestamp="20221020 12:00:51.621" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://fakestoreapi.com/carts/startdate=%22%22&amp;enddate=2020-02-01</msg>
-<status status="FAIL" starttime="20221020 12:00:50.940" endtime="20221020 12:00:51.621"/>
+<msg timestamp="20221020 16:16:07.472" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221020 16:16:06.888" endtime="20221020 16:16:07.472"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>\n${response.content}\n</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" starttime="20221020 12:00:51.621" endtime="20221020 12:00:51.621"/>
+<status status="PASS" starttime="20221020 16:16:07.472" endtime="20221020 16:16:07.474"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" starttime="20221020 12:00:51.621" endtime="20221020 12:00:51.621"/>
+<msg timestamp="20221020 16:16:07.475" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221020 16:16:07.475" endtime="20221020 16:16:07.475"/>
 </kw>
-<status status="FAIL" starttime="20221020 12:00:50.940" endtime="20221020 12:00:51.621"/>
+<status status="PASS" starttime="20221020 16:16:06.888" endtime="20221020 16:16:07.475"/>
 </kw>
 <kw name="Validate Status Code &quot;200&quot;" library="common" sourcename="Validate Status Code &quot;${statuscode}&quot;">
-<status status="NOT RUN" starttime="20221020 12:00:51.630" endtime="20221020 12:00:51.630"/>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20221020 16:16:07.475" endtime="20221020 16:16:07.475"/>
 </kw>
-<tag>GET200.7</tag>
-<status status="FAIL" starttime="20221020 12:00:50.940" endtime="20221020 12:00:51.632">HTTPError: 400 Client Error: Bad Request for url: https://fakestoreapi.com/carts/startdate=%22%22&amp;enddate=2020-02-01</status>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nStatus Code: ${response.status_code}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 16:16:07.475" endtime="20221020 16:16:07.475"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:07.475" endtime="20221020 16:16:07.475"/>
+</kw>
+<tag>POST200</tag>
+<status status="PASS" starttime="20221020 16:16:06.882" endtime="20221020 16:16:07.475"/>
 </test>
-<doc>Test Cases file for testing at /carts endpoint</doc>
-<status status="FAIL" starttime="20221020 12:00:50.838" endtime="20221020 12:00:51.632"/>
+<test id="s1-t2" name="Cenary: POST Login User With Invalid UserName 401" line="28">
+<kw name="Pick A Static Object" library="common">
+<arg>login.json</arg>
+<arg>invalid_username</arg>
+<kw name="Import Estatic JSON" library="common">
+<var>${json}</var>
+<arg>${file_name}</arg>
+<kw name="Get File" library="OperatingSystem">
+<var>${file}</var>
+<arg>${EXECDIR}/../support/fixtures/static/${file_name}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20221020 16:16:07.482" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\paula.jardim\Testes_FakeStoreAPI\support\fixtures\static\login.json"&gt;C:\Users\paula.jardim\Testes_FakeStoreAPI\support\fixtures\static\login.json&lt;/a&gt;'.</msg>
+<msg timestamp="20221020 16:16:07.482" level="INFO">${file} = {
+    "valid_login":{
+        "username": "johnd",
+        "password": "m38rmF$"
+    },
+    "without_username":{
+        "password": "83r5^_"
+    },
+    "without_password":{
+        "username": "johnd...</msg>
+<status status="PASS" starttime="20221020 16:16:07.482" endtime="20221020 16:16:07.482"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>&amp;{data}</var>
+<arg>json.loads('''${file}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221020 16:16:07.482" level="INFO">&amp;{data} = { valid_login={'username': 'johnd', 'password': 'm38rmF$'} | without_username={'password': '83r5^_'} | without_password={'username': 'johnd'} | invalid_username={'username': 'invalid', 'password': '83...</msg>
+<status status="PASS" starttime="20221020 16:16:07.482" endtime="20221020 16:16:07.482"/>
+</kw>
+<msg timestamp="20221020 16:16:07.482" level="INFO">${json} = {'valid_login': {'username': 'johnd', 'password': 'm38rmF$'}, 'without_username': {'password': '83r5^_'}, 'without_password': {'username': 'johnd'}, 'invalid_username': {'username': 'invalid', 'passwo...</msg>
+<status status="PASS" starttime="20221020 16:16:07.482" endtime="20221020 16:16:07.482"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${payload}</var>
+<arg>${json["${object}"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221020 16:16:07.482" level="INFO">${payload} = {'username': 'invalid', 'password': '83r5^_'}</msg>
+<status status="PASS" starttime="20221020 16:16:07.482" endtime="20221020 16:16:07.482"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${payload}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221020 16:16:07.482" level="INFO">${payload} = {'username': 'invalid', 'password': '83r5^_'}</msg>
+<status status="PASS" starttime="20221020 16:16:07.482" endtime="20221020 16:16:07.482"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:07.482" endtime="20221020 16:16:07.482"/>
+</kw>
+<kw name="POST Endpoint /login" library="login_keywords">
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>fakestore</arg>
+<arg>url=/auth/login</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20221020 16:16:08.002" level="INFO">POST Request : url=https://fakestoreapi.com/auth/login 
+ path_url=/auth/login 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '45', 'Content-Type': 'application/json'} 
+ body=b'{"username": "invalid", "password": "83r5^_"}' 
+ </msg>
+<msg timestamp="20221020 16:16:08.002" level="INFO">POST Response : url=https://fakestoreapi.com/auth/login 
+ status=401, reason=Unauthorized 
+ headers={'Date': 'Thu, 20 Oct 2022 19:16:08 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'X-Powered-By': 'Express', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=xKUi4V7gEvfWvbwOYB9YXKv8OciJeXl%2FxKUkOWiY0Z34BEXyDMIS7mbcwkDzH4bh5Y7yuZ4A6mlgNZbLo5p8fmzf3Vn%2BtERrQkG2jmCIY9fU7VSg1cBHwY58f9Uxbo9cKE1q"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '75d4160ce91fa529-GRU', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body=username or password is incorrect 
+ </msg>
+<msg timestamp="20221020 16:16:08.002" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<status status="PASS" starttime="20221020 16:16:07.482" endtime="20221020 16:16:08.002"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\n${response.content}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 16:16:08.002" endtime="20221020 16:16:08.002"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221020 16:16:08.002" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<status status="PASS" starttime="20221020 16:16:08.002" endtime="20221020 16:16:08.002"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:07.482" endtime="20221020 16:16:08.002"/>
+</kw>
+<kw name="Validate Status Code &quot;401&quot;" library="common" sourcename="Validate Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20221020 16:16:08.002" endtime="20221020 16:16:08.002"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nStatus Code: ${response.status_code}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 16:16:08.002" endtime="20221020 16:16:08.002"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:08.002" endtime="20221020 16:16:08.012"/>
+</kw>
+<tag>POST401.1</tag>
+<status status="PASS" starttime="20221020 16:16:07.482" endtime="20221020 16:16:08.012"/>
+</test>
+<test id="s1-t3" name="Cenary: POST Login User With Wrong Password 401" line="34">
+<kw name="Pick A Static Object" library="common">
+<arg>login.json</arg>
+<arg>invalid_password</arg>
+<kw name="Import Estatic JSON" library="common">
+<var>${json}</var>
+<arg>${file_name}</arg>
+<kw name="Get File" library="OperatingSystem">
+<var>${file}</var>
+<arg>${EXECDIR}/../support/fixtures/static/${file_name}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20221020 16:16:08.012" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\paula.jardim\Testes_FakeStoreAPI\support\fixtures\static\login.json"&gt;C:\Users\paula.jardim\Testes_FakeStoreAPI\support\fixtures\static\login.json&lt;/a&gt;'.</msg>
+<msg timestamp="20221020 16:16:08.012" level="INFO">${file} = {
+    "valid_login":{
+        "username": "johnd",
+        "password": "m38rmF$"
+    },
+    "without_username":{
+        "password": "83r5^_"
+    },
+    "without_password":{
+        "username": "johnd...</msg>
+<status status="PASS" starttime="20221020 16:16:08.012" endtime="20221020 16:16:08.012"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>&amp;{data}</var>
+<arg>json.loads('''${file}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221020 16:16:08.012" level="INFO">&amp;{data} = { valid_login={'username': 'johnd', 'password': 'm38rmF$'} | without_username={'password': '83r5^_'} | without_password={'username': 'johnd'} | invalid_username={'username': 'invalid', 'password': '83...</msg>
+<status status="PASS" starttime="20221020 16:16:08.012" endtime="20221020 16:16:08.012"/>
+</kw>
+<msg timestamp="20221020 16:16:08.012" level="INFO">${json} = {'valid_login': {'username': 'johnd', 'password': 'm38rmF$'}, 'without_username': {'password': '83r5^_'}, 'without_password': {'username': 'johnd'}, 'invalid_username': {'username': 'invalid', 'passwo...</msg>
+<status status="PASS" starttime="20221020 16:16:08.012" endtime="20221020 16:16:08.012"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${payload}</var>
+<arg>${json["${object}"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221020 16:16:08.012" level="INFO">${payload} = {'username': 'johnd', 'password': '83r5^_'}</msg>
+<status status="PASS" starttime="20221020 16:16:08.012" endtime="20221020 16:16:08.012"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${payload}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221020 16:16:08.012" level="INFO">${payload} = {'username': 'johnd', 'password': '83r5^_'}</msg>
+<status status="PASS" starttime="20221020 16:16:08.012" endtime="20221020 16:16:08.012"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:08.012" endtime="20221020 16:16:08.012"/>
+</kw>
+<kw name="POST Endpoint /login" library="login_keywords">
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>fakestore</arg>
+<arg>url=/auth/login</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20221020 16:16:08.512" level="INFO">POST Request : url=https://fakestoreapi.com/auth/login 
+ path_url=/auth/login 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '43', 'Content-Type': 'application/json'} 
+ body=b'{"username": "johnd", "password": "83r5^_"}' 
+ </msg>
+<msg timestamp="20221020 16:16:08.512" level="INFO">POST Response : url=https://fakestoreapi.com/auth/login 
+ status=401, reason=Unauthorized 
+ headers={'Date': 'Thu, 20 Oct 2022 19:16:08 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'X-Powered-By': 'Express', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=RmZHzEWmsXL9UtkJ6ZeDBVVZl5ofReEiyAQ%2FEsjsuOHnLxaPFUV9lLI90vlXFh15gm1ZNFjMesngOtIExSXpQsO9aEogDl4tQFnpIyHz53YmiaWxN%2FfjcSe%2F8pea8V78Ltps"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '75d416104f68a529-GRU', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body=username or password is incorrect 
+ </msg>
+<msg timestamp="20221020 16:16:08.512" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<status status="PASS" starttime="20221020 16:16:08.012" endtime="20221020 16:16:08.512"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\n${response.content}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 16:16:08.512" endtime="20221020 16:16:08.512"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221020 16:16:08.512" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<status status="PASS" starttime="20221020 16:16:08.512" endtime="20221020 16:16:08.512"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:08.012" endtime="20221020 16:16:08.512"/>
+</kw>
+<kw name="Validate Status Code &quot;401&quot;" library="common" sourcename="Validate Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20221020 16:16:08.512" endtime="20221020 16:16:08.512"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nStatus Code: ${response.status_code}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 16:16:08.522" endtime="20221020 16:16:08.522"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:08.512" endtime="20221020 16:16:08.522"/>
+</kw>
+<tag>POST401.2</tag>
+<status status="PASS" starttime="20221020 16:16:08.012" endtime="20221020 16:16:08.525"/>
+</test>
+<test id="s1-t4" name="Cenary: GET Logins 404" line="42">
+<kw name="GET Endpoint" library="common">
+<arg>/login</arg>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>fakestore</arg>
+<arg>${endpoint}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221020 16:16:08.864" level="INFO">GET Request : url=https://fakestoreapi.com/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221020 16:16:08.864" level="INFO">GET Response : url=https://fakestoreapi.com/login 
+ status=404, reason=Not Found 
+ headers={'Date': 'Thu, 20 Oct 2022 19:16:09 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Content-Security-Policy': "default-src 'none'", 'X-Content-Type-Options': 'nosniff', 'X-Powered-By': 'Express', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=RemoX9%2FlcAi9cYV01rS%2FvblM1qksR4IbOLxTWsHTOXMSVckpS66PEjRkWpiKNrYtUNfibRFXZV%2FAIDRyNVV0WRvQMYCXk3BJMYGX%2FUn78bSSm8nqYQ%2FWor5GXd0FvlnYYl2J"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '75d416136c88a529-GRU', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;Error&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;pre&gt;Cannot GET /login&lt;/pre&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg timestamp="20221020 16:16:08.865" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20221020 16:16:08.526" endtime="20221020 16:16:08.865"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\n${response.content}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 16:16:08.865" endtime="20221020 16:16:08.867"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221020 16:16:08.867" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20221020 16:16:08.867" endtime="20221020 16:16:08.867"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:08.526" endtime="20221020 16:16:08.867"/>
+</kw>
+<kw name="Validate Status Code &quot;404&quot;" library="common" sourcename="Validate Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20221020 16:16:08.870" endtime="20221020 16:16:08.871"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nStatus Code: ${response.status_code}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 16:16:08.871" endtime="20221020 16:16:08.872"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:08.869" endtime="20221020 16:16:08.872"/>
+</kw>
+<tag>GET404</tag>
+<status status="PASS" starttime="20221020 16:16:08.526" endtime="20221020 16:16:08.872"/>
+</test>
+<test id="s1-t5" name="Cenary: PUT Logins 404" line="47">
+<kw name="Pick A Static Object" library="common">
+<arg>login.json</arg>
+<arg>valid_login</arg>
+<kw name="Import Estatic JSON" library="common">
+<var>${json}</var>
+<arg>${file_name}</arg>
+<kw name="Get File" library="OperatingSystem">
+<var>${file}</var>
+<arg>${EXECDIR}/../support/fixtures/static/${file_name}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20221020 16:16:08.877" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\paula.jardim\Testes_FakeStoreAPI\support\fixtures\static\login.json"&gt;C:\Users\paula.jardim\Testes_FakeStoreAPI\support\fixtures\static\login.json&lt;/a&gt;'.</msg>
+<msg timestamp="20221020 16:16:08.877" level="INFO">${file} = {
+    "valid_login":{
+        "username": "johnd",
+        "password": "m38rmF$"
+    },
+    "without_username":{
+        "password": "83r5^_"
+    },
+    "without_password":{
+        "username": "johnd...</msg>
+<status status="PASS" starttime="20221020 16:16:08.877" endtime="20221020 16:16:08.877"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>&amp;{data}</var>
+<arg>json.loads('''${file}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221020 16:16:08.878" level="INFO">&amp;{data} = { valid_login={'username': 'johnd', 'password': 'm38rmF$'} | without_username={'password': '83r5^_'} | without_password={'username': 'johnd'} | invalid_username={'username': 'invalid', 'password': '83...</msg>
+<status status="PASS" starttime="20221020 16:16:08.878" endtime="20221020 16:16:08.878"/>
+</kw>
+<msg timestamp="20221020 16:16:08.878" level="INFO">${json} = {'valid_login': {'username': 'johnd', 'password': 'm38rmF$'}, 'without_username': {'password': '83r5^_'}, 'without_password': {'username': 'johnd'}, 'invalid_username': {'username': 'invalid', 'passwo...</msg>
+<status status="PASS" starttime="20221020 16:16:08.877" endtime="20221020 16:16:08.878"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${payload}</var>
+<arg>${json["${object}"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221020 16:16:08.879" level="INFO">${payload} = {'username': 'johnd', 'password': 'm38rmF$'}</msg>
+<status status="PASS" starttime="20221020 16:16:08.878" endtime="20221020 16:16:08.879"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${payload}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221020 16:16:08.879" level="INFO">${payload} = {'username': 'johnd', 'password': 'm38rmF$'}</msg>
+<status status="PASS" starttime="20221020 16:16:08.879" endtime="20221020 16:16:08.879"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:08.875" endtime="20221020 16:16:08.879"/>
+</kw>
+<kw name="PUT Endpoint /login" library="login_keywords">
+<kw name="PUT On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>fakestore</arg>
+<arg>url=/auth/login</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<msg timestamp="20221020 16:16:09.213" level="INFO">PUT Request : url=https://fakestoreapi.com/auth/login 
+ path_url=/auth/login 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '44', 'Content-Type': 'application/json'} 
+ body=b'{"username": "johnd", "password": "m38rmF$"}' 
+ </msg>
+<msg timestamp="20221020 16:16:09.213" level="INFO">PUT Response : url=https://fakestoreapi.com/auth/login 
+ status=404, reason=Not Found 
+ headers={'Date': 'Thu, 20 Oct 2022 19:16:09 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Content-Security-Policy': "default-src 'none'", 'X-Content-Type-Options': 'nosniff', 'X-Powered-By': 'Express', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=ehl4JZyuyu0maz9z1dsJUNdTTtjAg%2Bfsk43fukbM5wcrOAscv1jIiHYczTO7B%2F%2FDoNzTYDjiyWyD1PUJcZe57lvb6vXwL%2FHHG8e9zhFGYMtLqQYwe%2Bwui0yidROfApWzIFaA"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '75d41615a8b5a529-GRU', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;Error&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;pre&gt;Cannot PUT /auth/login&lt;/pre&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg timestamp="20221020 16:16:09.213" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20221020 16:16:08.880" endtime="20221020 16:16:09.213"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\n${response.content}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 16:16:09.214" endtime="20221020 16:16:09.215"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221020 16:16:09.216" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20221020 16:16:09.215" endtime="20221020 16:16:09.216"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:08.879" endtime="20221020 16:16:09.216"/>
+</kw>
+<kw name="Validate Status Code &quot;404&quot;" library="common" sourcename="Validate Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20221020 16:16:09.218" endtime="20221020 16:16:09.219"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nStatus Code: ${response.status_code}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 16:16:09.219" endtime="20221020 16:16:09.220"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:09.217" endtime="20221020 16:16:09.220"/>
+</kw>
+<tag>PUT404</tag>
+<status status="PASS" starttime="20221020 16:16:08.875" endtime="20221020 16:16:09.220"/>
+</test>
+<test id="s1-t6" name="Cenary: PATCH Logins 404" line="53">
+<kw name="Pick A Static Object" library="common">
+<arg>login.json</arg>
+<arg>valid_login</arg>
+<kw name="Import Estatic JSON" library="common">
+<var>${json}</var>
+<arg>${file_name}</arg>
+<kw name="Get File" library="OperatingSystem">
+<var>${file}</var>
+<arg>${EXECDIR}/../support/fixtures/static/${file_name}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20221020 16:16:09.224" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\paula.jardim\Testes_FakeStoreAPI\support\fixtures\static\login.json"&gt;C:\Users\paula.jardim\Testes_FakeStoreAPI\support\fixtures\static\login.json&lt;/a&gt;'.</msg>
+<msg timestamp="20221020 16:16:09.225" level="INFO">${file} = {
+    "valid_login":{
+        "username": "johnd",
+        "password": "m38rmF$"
+    },
+    "without_username":{
+        "password": "83r5^_"
+    },
+    "without_password":{
+        "username": "johnd...</msg>
+<status status="PASS" starttime="20221020 16:16:09.224" endtime="20221020 16:16:09.225"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>&amp;{data}</var>
+<arg>json.loads('''${file}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20221020 16:16:09.225" level="INFO">&amp;{data} = { valid_login={'username': 'johnd', 'password': 'm38rmF$'} | without_username={'password': '83r5^_'} | without_password={'username': 'johnd'} | invalid_username={'username': 'invalid', 'password': '83...</msg>
+<status status="PASS" starttime="20221020 16:16:09.225" endtime="20221020 16:16:09.225"/>
+</kw>
+<msg timestamp="20221020 16:16:09.226" level="INFO">${json} = {'valid_login': {'username': 'johnd', 'password': 'm38rmF$'}, 'without_username': {'password': '83r5^_'}, 'without_password': {'username': 'johnd'}, 'invalid_username': {'username': 'invalid', 'passwo...</msg>
+<status status="PASS" starttime="20221020 16:16:09.224" endtime="20221020 16:16:09.226"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${payload}</var>
+<arg>${json["${object}"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20221020 16:16:09.226" level="INFO">${payload} = {'username': 'johnd', 'password': 'm38rmF$'}</msg>
+<status status="PASS" starttime="20221020 16:16:09.226" endtime="20221020 16:16:09.226"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${payload}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221020 16:16:09.226" level="INFO">${payload} = {'username': 'johnd', 'password': 'm38rmF$'}</msg>
+<status status="PASS" starttime="20221020 16:16:09.226" endtime="20221020 16:16:09.226"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:09.223" endtime="20221020 16:16:09.227"/>
+</kw>
+<kw name="PATCH Endpoint /login" library="login_keywords">
+<kw name="PATCH On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>fakestore</arg>
+<arg>url=/auth/login</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a PATCH request on a previously created HTTP Session.</doc>
+<msg timestamp="20221020 16:16:09.558" level="INFO">PATCH Request : url=https://fakestoreapi.com/auth/login 
+ path_url=/auth/login 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '44', 'Content-Type': 'application/json'} 
+ body=b'{"username": "johnd", "password": "m38rmF$"}' 
+ </msg>
+<msg timestamp="20221020 16:16:09.558" level="INFO">PATCH Response : url=https://fakestoreapi.com/auth/login 
+ status=404, reason=Not Found 
+ headers={'Date': 'Thu, 20 Oct 2022 19:16:09 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Content-Security-Policy': "default-src 'none'", 'X-Content-Type-Options': 'nosniff', 'X-Powered-By': 'Express', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=n4b%2FAkgAZE8JLHmu9mN71cC86k1B09tNe%2FYq1ilNuYs6P7PXO8tj3CUZJI3rzvwiEpgFPuOfI%2Fik0B7QtsaTJ6UTzXv2pxJYax%2BwCFDlq2oD6iPHr7Gc4Sef103dH5p%2BuWmd"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '75d41617ccb3a529-GRU', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;Error&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;pre&gt;Cannot PATCH /auth/login&lt;/pre&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg timestamp="20221020 16:16:09.558" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20221020 16:16:09.227" endtime="20221020 16:16:09.559"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\n${response.content}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 16:16:09.559" endtime="20221020 16:16:09.560"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221020 16:16:09.561" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20221020 16:16:09.560" endtime="20221020 16:16:09.561"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:09.227" endtime="20221020 16:16:09.561"/>
+</kw>
+<kw name="Validate Status Code &quot;404&quot;" library="common" sourcename="Validate Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20221020 16:16:09.563" endtime="20221020 16:16:09.563"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nStatus Code: ${response.status_code}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 16:16:09.563" endtime="20221020 16:16:09.564"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:09.562" endtime="20221020 16:16:09.564"/>
+</kw>
+<tag>PATCH404</tag>
+<status status="PASS" starttime="20221020 16:16:09.222" endtime="20221020 16:16:09.565"/>
+</test>
+<test id="s1-t7" name="Cenary: DELETE Logins 404" line="59">
+<kw name="DELETE Endpoint" library="common">
+<arg>/login</arg>
+<arg>1</arg>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>fakestore</arg>
+<arg>url=${endpoint}/${id}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20221020 16:16:09.906" level="INFO">DELETE Request : url=https://fakestoreapi.com/login/1 
+ path_url=/login/1 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20221020 16:16:09.906" level="INFO">DELETE Response : url=https://fakestoreapi.com/login/1 
+ status=404, reason=Not Found 
+ headers={'Date': 'Thu, 20 Oct 2022 19:16:10 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Content-Security-Policy': "default-src 'none'", 'X-Content-Type-Options': 'nosniff', 'X-Powered-By': 'Express', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=ej2NKAymclzY2K4kUvJiNv%2FCxWxyQTTdOHAA2QM6Ou5n6%2BvUie07F1AX0fpBySXK%2BMC2Q%2FsI9%2BVBUVjEy6euAuyvy75mdyxDxbdX1Fx6HRzAYrhAd8sE%2FLRBWp0hvn9jH1lo"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '75d41619e914a529-GRU', 'Content-Encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;Error&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;pre&gt;Cannot DELETE /login/1&lt;/pre&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg timestamp="20221020 16:16:09.906" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20221020 16:16:09.569" endtime="20221020 16:16:09.906"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\n${response.content}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 16:16:09.906" endtime="20221020 16:16:09.907"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221020 16:16:09.908" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20221020 16:16:09.908" endtime="20221020 16:16:09.908"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:09.568" endtime="20221020 16:16:09.908"/>
+</kw>
+<kw name="Validate Status Code &quot;404&quot;" library="common" sourcename="Validate Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20221020 16:16:09.912" endtime="20221020 16:16:09.913"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nStatus Code: ${response.status_code}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221020 16:16:09.913" endtime="20221020 16:16:09.914"/>
+</kw>
+<status status="PASS" starttime="20221020 16:16:09.912" endtime="20221020 16:16:09.914"/>
+</kw>
+<tag>DELETE404</tag>
+<status status="PASS" starttime="20221020 16:16:09.568" endtime="20221020 16:16:09.915"/>
+</test>
+<doc>Test Cases file for testing at /login endpoint</doc>
+<status status="PASS" starttime="20221020 16:16:06.770" endtime="20221020 16:16:09.917"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">GET200.7</stat>
+<stat pass="1" fail="0" skip="0">DELETE404</stat>
+<stat pass="1" fail="0" skip="0">GET404</stat>
+<stat pass="1" fail="0" skip="0">PATCH404</stat>
+<stat pass="1" fail="0" skip="0">POST200</stat>
+<stat pass="1" fail="0" skip="0">POST401.1</stat>
+<stat pass="1" fail="0" skip="0">POST401.2</stat>
+<stat pass="1" fail="0" skip="0">PUT404</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Carts Tests">Carts Tests</stat>
+<stat pass="7" fail="0" skip="0" id="s1" name="Login Tests">Login Tests</stat>
 </suite>
 </statistics>
 <errors>
