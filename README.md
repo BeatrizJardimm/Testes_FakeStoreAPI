@@ -1,6 +1,9 @@
 ## Notes while developing:
 
-While i was developing the Test Cases for this API, i encountered an awful lot of errors. 
+<p align="justify">
+    While i was developing the Test Cases for this API, i encountered an awful lot of errors.
+    At pretty much every test case i developed to, theoericaly, find a 400 error, i was returned a 200 status code, and that should not happen for different reasons for each test. Below you will find a table with every test case, the answer i got from the test and the answer i should've gotten. You'll also find green and red squares beside these test cases, the green squares are for the test i got the expected response/status code and the red squares are for the test cases qith requests that did not return what was expected of them. And yes, there are a LOT more red squares than green squares.
+</p>
 
 *** /products ***
 
