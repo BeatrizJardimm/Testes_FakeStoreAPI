@@ -41,7 +41,7 @@ Cenary: POST Login User With Wrong Password 401
 
 Cenary: GET Logins 404
     [tags]        GET404
-    GET Endpoint         /login
+    GET Endpoint         auth/login
     Validate Status Code "404"
 
 Cenary: PUT Logins 404

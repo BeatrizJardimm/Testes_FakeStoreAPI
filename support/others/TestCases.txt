@@ -176,9 +176,9 @@ TC127: Delete a non-existent user -- (DELETE404)
 
 ** POST **
 TC128: Login a user -- (POST200)
-TC129: Login a user without passing the username -- (POST400.1)
-TC130: Login a user without passing the password -- (POST400.2)
-TC131: Login a invalid username -- (POST401.1)
+TC129: Login without username -- (POST400.1)
+TC130: Login without password -- (POST400.2)
+TC131: Login an invalid username -- (POST401.1)
 TC132: Login a user with the wrong password -- (POST401.2)
 
 ** GET **
