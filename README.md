@@ -52,21 +52,22 @@ Now you have a copy of the project in your local machine! :)
 
 <p align="justify">
     As already said, I used VSCode to develop this project, and some extensions in this IDE were essential to enhance and organize the code. If you're using VSCode like I did, I recommend you use these extentions to smooth the development of this project and others. The extentions are listed below:
-    
-    * Robot Framework Intellisense
-    * Python (Intellisense oficial)
-    * Hyper Term Theme
-    * Material Icon Theme
-    * Rainbow Brackets
-    * Tabnine AI autocomplete
+    <ul>
+        <li>Robot Framework Intellisense</li>
+        <li>Python (Intellisense oficial)</li>
+        <li>Hyper Term Theme</li>
+        <li>Material Icon Theme</li>
+        <li>Rainbow Brackets</li>
+        <li>Tabnine AI autocomplete</li>
+    </ul>
 </p>
 
 ## <img src="./media/ryanQ.jpg" alt="Jim - The Office" width="60" height="60" align="right"> How to run the project
 
 <p align="justify">
-    First, you need to [download Python](https://www.python.org/downloads/) in your machine (I'm using version 3.8.2).
+    First, you need to <a href="https://www.python.org/downloads/">download Python</a> in your machine (I'm using version 3.8.2).
     <br>
-    After that, install [Node.js](https://nodejs.org/en/download/) (LTS version).
+    After that, install <a href="https://nodejs.org/en/download/">Node.js</a> (LTS version).
     <br>
     To make sure both were correctly installed, you just have to open your console and type the commands: <code>python -v</code> and <code>node -v</code> so you can verify the version in which they were downloaded.
     <br>
@@ -74,7 +75,7 @@ Now you have a copy of the project in your local machine! :)
     Now, if you're using Windows, to download Robot Framework you can use Python's pip install command.
     So, open your console again and type <code>pip install robotframework</code>.
     <br>
-    If your OS isn't Windows, you can find how to install Robot Framework through this [link](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#installation-instructions).
+    If your OS isn't Windows, you can find how to install Robot Framework through this <a href="https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#installation-instructions">link</a>.
     <br>
     Run <code>robot --version</code> to check if the framework was sucessfully installed and it's version.
     <br>
@@ -87,9 +88,9 @@ Now you have a copy of the project in your local machine! :)
     <br>
     <code>pip install robotframework-faker</code>
     <br>
-    
+    <br>
     Bear in mind that these libraries are essential and if they're not correctly installed the project won't run.
-    
+    <br>
     Now you can clean this console (or open another one) to run the test cases.
 <br>
 <br>
@@ -98,9 +99,9 @@ Now you have a copy of the project in your local machine! :)
     Make sure that the path is correct and, after that, to run the files you have to type the following command:
 <br>
     <code>robot -d ./reports file_name.robot</code>
-
-    As an example, we have an image of the console with the command to run the /login test cases below:
 </p>
+
+As an example, we have an image of the console with the command to run the /login test cases below:
 
 <div align="center">
     <img src="media/command1.png">
@@ -109,7 +110,7 @@ Now you have a copy of the project in your local machine! :)
 <p align="justify">
     If you want to run only one specific test case, you can type in <code>robot -d ./reports -i TAG file_name.robot</code>, where "TAG" has to be replaced with the tag for the test case of interest.
     <br>
-    The test case tags can be found both in the [Test Cases file](./others/TestCases.txt) and at the first line of each test case, as shown in the example below:
+    The test case tags can be found both in the <a href="./others/TestCases.txt">Test Cases file</a> and at the first line of each test case, as shown in the example below:
 </p>
 
 <div align="center">
@@ -129,10 +130,9 @@ After running the tests, what you'll be returned looks like:
 
 <p align="justify">
     Where the first and last lines show the name of the test case, the shown message is the one returned by the API and the status code returned is also sent by the API. If these elements match the ones expected by the test case, we get the PASS message in green, as seen in the image, but if not, we get the message FAIL in red.
-    <br>
-    
-    Now you can run tests in any endpoint for any kind of request you want!
 </p>
+    
+Now you can run tests in any endpoint for any kind of request you want!
 
 ## <img src="./media/jim.jpg" alt="Ryan - The Office" width="60" height="60" align="right"> Notes while developing:
 
@@ -319,6 +319,7 @@ With the informations explicited in this document you can access, edit and share
 
 <p align="justify">
     I'd like to share the credits of this project with my colleagues Amanda Bressam and Emily Lanzarin. Each one of us developed our own project with the same API, so we helped one another throughout the development. Here are their GitHub profiles if you're wondering who are these amazing girls.
+    <br>
     Thanks to both of you! :)
 </p>
 
