@@ -7,7 +7,7 @@
 </div>
 
 * This repository is composed by test cases developed with **Robot Framework** for the **Fake Store API**.
-* This project tests were written with  **VS Code**.
+* This project tests were written in  **VS Code**.
 * The **Git** tool was used to turn the project into a repository and push it to GitHub later on.
 
 ## <img src="./media/pamQ.jpg" alt="Pam - The Office" width="60" height="60" align="right"> Project's Features
@@ -20,7 +20,7 @@ The files on this project are organized as described bellow:
 | Folder | Description |
 | :---: | :---: |
 | [keywords](./keywords/) | Files where I developed Keywords for the test cases of each endpoint. |
-| [media](./media/) | Folder with the image files you see in this document. |
+| [media](./media/) | Folder with the images you see in this document. |
 | [others](./others/) | Contains a detailed list of all test cases throughout the project. |
 | [support](./support/) | Contains the file *base.robot* used to set the libraries and files imported to the project. |
 | [common](./support/common/) | Folder with a keyword file that has keywords used for test cases in more than one endpoint. |
@@ -28,15 +28,15 @@ The files on this project are organized as described bellow:
 | [variables](./support/variables/) | Contains a file to set the variables used along the project. |
 | [tests](./tests/) | Here is where we find all test cases in the project. Each endpoint has it's own file. |
 
-Besides the files listed above, we can find the license and the document you're reading right now in the global scope of the project.
+Besides the files listed above, you can find the license and the document you're reading right now in the global scope of the project.
 
 ## <img src="./media/dwightQ.jpg" alt="Dwight - The Office" width="60" height="60" align="right"> How to create a copy of this project
 
-Top obtain a copy of this project in your own machine, follow the steps bellow:
+To obtain a copy of this project in your own machine, follow the steps bellow:
 
 1. *Fork* this project in you GitHub profile.
 2. Download a IDE that's compatible with Python* [here]() are some options.
-3. Download a [Git](https://git-scm.com/downloads) version that's compatible with your operation system.
+3. Download a [Git](https://git-scm.com/downloads) version that's compatible with your operational system.
 4. After you set up Git in your local machine, run the following code:
 
 <code>
@@ -46,65 +46,77 @@ $ git clone https://github.com/BeatrizJardimm/Tests_FakeStoreAPI.git
 
 Now you have a copy of the project in your local machine! :)
 
-*In this project i used **VS CODE**, because, aside from being compatible with python, it recognizes Robot Framework and has a very intuitive interface.
+*In this project I used **VS CODE**, because, aside from being compatible with python, it recognizes Robot Framework and has a very intuitive interface.
 
 ### Setting VSCode 
 
-As already said, i used VSCode to develop this project, and some extensions in this IDE were essential to the enhance and organize the code. If you're using VSCode like i did, I recommend you use these extentions to smooth the development of this project and others. The extentions are listed below:
+<p align="justify">
+    As already said, I used VSCode to develop this project, and some extensions in this IDE were essential to enhance and organize the code. If you're using VSCode like I did, I recommend you use these extentions to smooth the development of this project and others. The extentions are listed below:
+    
+    * Robot Framework Intellisense
+    * Python (Intellisense oficial)
+    * Hyper Term Theme
+    * Material Icon Theme
+    * Rainbow Brackets
+    * Tabnine AI autocomplete
+</p>
 
-* Robot Framework Intellisense
-* Python (Intellisense oficial)
-* Hyper Term Theme
-* Material Icon Theme
-* Rainbow Brackets
-* Tabnine AI autocomplete
+## <img src="./media/ryanQ.jpg" alt="Jim - The Office" width="60" height="60" align="right"> How to run the project
 
-## <img src="./media/ryanQ.jpg" alt="Jim - The Office" width="60" height="60" align="right"> How ot run the project
+<p align="justify">
+    First, you need to [download Python](https://www.python.org/downloads/) in your machine (I'm using version 3.8.2).
+    <br>
+    After that, install [Node.js](https://nodejs.org/en/download/) (LTS version).
+    <br>
+    To make sure both were correctly installed, you just have to open your console and type the commands: <code>python -v</code> and <code>node -v</code> so you can verify the version in which they were downloaded.
+    <br>
+    <br>
+    Now, if you're using Windows, to download Robot Framework you can use Python's pip install command.
+    So, open your console again and type <code>pip install robotframework</code>.
+    <br>
+    If your OS isn't Windows, you can find how to install Robot Framework through this [link](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#installation-instructions).
+    <br>
+    Run <code>robot --version</code> to check if the framework was sucessfully installed and it's version.
+    <br>
+    <br>
+    In this project, I used a few libraries from Robot Framework and to install these libraries you must type the following commands in your console:
+    <br>
+    <code>pip install robotframework-browser</code>
+    <br>
+    <code>pip install robotframework-requests</code>
+    <br>
+    <code>pip install robotframework-faker</code>
+    <br>
+    
+    Bear in mind that these libraries are essential and if they're not correctly installed the project won't run.
+    
+    Now you can clean this console (or open another one) to run the test cases.
+<br>
+<br>
+    To do that, you have to access the right folder to where the test case files are, and that is: Tests_FakeStoreAPI/tests/
+<br>
+    Make sure that the path is correct and, after that, to run the files you have to type the following command:
+<br>
+    <code>robot -d ./reports file_name.robot</code>
 
-First, you need to [download Python](https://www.python.org/downloads/) in your machine (I'm using version 3.8.2).
-<br>
-After that, intall [Node.js](https://nodejs.org/en/download/) LTS version.
-<br>
-To make sure both were correctly intalled, you just have to open your cmd and type the comands: <code>python -v</code> and <code>node -v</code>, this way you can verify the version in which they were downloaded.
-<br>
-<br>
-Now, if you're using Windows, to download Robot Framework you can use Python's pip install command.
-So, opn you cmd again and type <code>pip install robotframework</code>.
-<br>
-If your OS isn't Windows, you'll find how to install Robot Framework through this [link](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#installation-instructions).
-<br>
-Run <code>robot --version</code> to check if the framework was sucessfully installed and it's version.
-<br>
-<br>
-In this project, I used a few libraries from Robot Framework, and to install these libraries you can type the following commands in your console:
-<br>
-<code>pip install robotframework-browser</code>
-<br>
-<code>pip install robotframework-requests</code>
-<br>
-<code>pip install robotframework-faker</code>
-<br>
-
-Bear in mind that these libraries are essential and if they're not correctly downloaded, the project won't run.
-
-Now you can clean this cmd (or open another one) to run the test cases. To do that, you have to acess the right folder to where the test case files are, and that is: Tests_FakeStoreAPI/tests/
-<br>
-Make sure that the path is correct and after that, to run the files you have to type the following command:
-<br>
-<code>robot -d ./reports file_name.robot</code>
-<br>
-As an example, we have an image of the console with the command to run the /login test cases below:
+    As an example, we have an image of the console with the command to run the /login test cases below:
+</p>
 
 <div align="center">
     <img src="media/command1.png">
 </div>
-
-If you want to run only one specific test case, you can type in <code>robot -d ./reports -i TAG file_name.robot</code>, where "tag" has to be replaced with the tag for the test case of interest. The test case tags can be found both in the [Test Cases file](./others/TestCases.txt) and at the first line of each test case, as shown in the example below:
+<br>
+<p align="justify">
+    If you want to run only one specific test case, you can type in <code>robot -d ./reports -i TAG file_name.robot</code>, where "TAG" has to be replaced with the tag for the test case of interest.
+    <br>
+    The test case tags can be found both in the [Test Cases file](./others/TestCases.txt) and at the first line of each test case, as shown in the example below:
+</p>
 
 <div align="center">
     <img src="media/TestCase.png">
 </div>
 
+<br>
 In this case, the command you have to type in your console is:
 <br>
 <code>robot -d ./reports -i POST200 login_tests.robot</code>
@@ -115,36 +127,43 @@ After running the tests, what you'll be returned looks like:
     <img src="media/Result.png">
 </div>
 
-Where the first and last lines show the name of the test case, the show message is the one returned by the API and the status code returned is also sent by the API. If these elements match the ones expected by the test case, we get the PASS message in green, as seen in the image, but if not, we get the message FAIL in red.
-<br>
-
-Now you can run tests in any endpoint for any kind of request you want!
+<p align="justify">
+    Where the first and last lines show the name of the test case, the shown message is the one returned by the API and the status code returned is also sent by the API. If these elements match the ones expected by the test case, we get the PASS message in green, as seen in the image, but if not, we get the message FAIL in red.
+    <br>
+    
+    Now you can run tests in any endpoint for any kind of request you want!
+</p>
 
 ## <img src="./media/jim.jpg" alt="Ryan - The Office" width="60" height="60" align="right"> Notes while developing:
 
 <p align="justify">
-    While i was developing the Test Cases for this API, i encountered an awful lot of errors.
-    At pretty much every test case i developed to, theoericaly, find a 400 error, i was returned a 200 status code, and that should not happen for different reasons for each test. Below in the Reports section, you will find a table with every test case, the answer i got from the test and the answer i should've gotten. You'll also find green and red squares beside these test cases, the green squares are for the test i got the expected response/status code and the red squares are for the test cases with requests that did not return what was expected of them. And yes, there are a LOT more red squares than green squares.
+    While I was developing the Test Cases for this API, I encountered an awful lot of errors.
+    <br>
+    At pretty much every test case I developed to, theoericaly, find a 400 error, I was returned a 200 status code, and that should not happen for different reasons for each test. Below in the Reports section, you will find a table with every test case, the answer I got from the test and the answer I should've gotten. You'll also find green and red squares beside these test cases, the green squares are for the test I got the expected response/status code and the red squares are for the test cases with requests that did not return what was expected of them. And yes, there are a LOT more red squares than green squares.
 </p>
 
 
 ## <img src="./media/ryanQ.jpg" alt="Ranjit de HIMYM" width="60" height="60" align="right"> Reports
 
-In this section, i created a table with every test case for each endpoint. The features of the tables are written in the section above.
+<p align="justify">
+    In this section, I created a table with every test case for each endpoint. The features of the tables are written in the section above.
+    <br>
+    The API's documentation was not very clear about the Status Code each request would return, so I based the column "Expected Result" in the status code I thought would make sense the API returned.
+</p>
 
 * /login (9 tests)
 
 |   Label   |   Test Objective  |   Expected Result  |  Obtained Result |
 |   :---:   |       :---:       |        :---:       |       :---:      |
 | ![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) | POST - Login user | Status Code: 200 <br> Access Token | Status Code: 200 <br> Access Token |
-| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | POST - Login without username | Not Documented | Gets into a loop and after a wilhe returns a 524 runtime error |
-| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | POST - Login without password | Not Documented | Gets into a loop and after a wilhe returns a 524 runtime error |
-| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | POST - Login with an invalid username | Not Documented | Status Code: 401 <br> body = "username or password is incorrect" |
-| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | POST - Login with the wrong password | Not Documented | Status Code: 401 <br> body = "username or password is incorrect" |
-| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | GET - Get list of logins | Not documented, but i expected a 404 error | Status Code: 404 <br> body = HTML body |
-| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | PUT - Edit logins | Not documented, but i expected a 404 error | Status Code: 404 <br> body = HTML body |
-| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | PATCH -Edit logins | Not documented, but i expected a 404 error | Status Code: 404 <br> body = HTML body |
-| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | DELETE - Delete a login | Not documented, but i expected a 404 error | Status Code: 404 <br> body = HTML body |
+| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | POST - Login without username | Status Code: 400| Gets into a loop and after a wilhe returns a 524 runtime error |
+| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | POST - Login without password | Status Code: 400 | Gets into a loop and after a wilhe returns a 524 runtime error |
+| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | POST - Login with an invalid username | Status Code: 401 | Status Code: 401 <br> body = "username or password is incorrect" |
+| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | POST - Login with the wrong password | Status Code: 401 | Status Code: 401 <br> body = "username or password is incorrect" |
+| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | GET - Get list of logins | Status Code: 404 | Status Code: 404 <br> body = HTML body |
+| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | PUT - Edit logins | Status Code: 404 | Status Code: 404 <br> body = HTML body |
+| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | PATCH -Edit logins | Status Code: 404 | Status Code: 404 <br> body = HTML body |
+| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | DELETE - Delete a login | Status Code: 404 | Status Code: 404 <br> body = HTML body |
 
 * /users (40 tests)
 
@@ -152,11 +171,11 @@ In this section, i created a table with every test case for each endpoint. The f
 |   :---:   |       :---:       |        :---:       |       :---:      |
 | ![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) | GET - List all users | Status Code: 200 <br> List of all users' data | Status Code: 200 <br> List of all users' data |
 | ![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) | GET - Get user by ID | Status Code: 200 <br> User's data | Status Code: 200 <br> User's data |
-| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | GET - Get invalid user | Not documented, but i expected a 404 error | Status Code: 200 <br> body = 'null' |
+| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | GET - Get invalid user | Status Code: 404 | Status Code: 200 <br> body = 'null' |
 | ![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) | GET - Get limited quantity of users | Status Code: 200 <br> List of users with given IDs | Status Code: 200 <br> List of users with given IDs |
-| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | GET - Get out-of-range quantity of users | Not documented, but i expected a 404 error | Status Code: 200 <br> List of all users |
+| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | GET - Get out-of-range quantity of users | Status Code: 404 | Status Code: 200 <br> List of all users |
 | ![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) | GET - Get a list of all users on sorted order | Status Code: 200 <br> Sorted list of all users | Status Code: 200 <br> Sorted list of all users |
-| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | GET - Get a list of all users passing an invalid sorted order | Not documented, but i expected a 404 error | Status Code: 200 <br> List of all users |
+| ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | GET - Get a list of all users passing an invalid sorted order | Status Code: 404 | Status Code: 200 <br> List of all users |
 | ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | POST - Add new user | Status Code: 201 <br> New user's data | Status Code: 200 <br> New user's ID |
 | ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | POST - Add new user with unavaliable email | Status Code: 400 <br> A message explaining that the email is already being used | Status Code: 200 <br> New user's ID |
 | ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) | POST - Add new user with existent username | Status Code: 400 <br> A message explaining that the username is already being used | Status Code: 200 <br> Existent user's ID |
@@ -298,8 +317,10 @@ With the informations explicited in this document you can access, edit and share
     <img src="./media/gifMedalhas.gif" alt="Jim, Dwight and Michel at The Olympics - The Office">
 </div>
 
-I'd like to share the credits of this project with my colleagues Amanda Bressam and Emily Lanzarin. Each one of us developed our own project with the same API, so we helped one another throughout the development. Here are their GitHub profiles if you're wondering who are these amazing girls.
-Thanks to both of you! :)
+<p align="justify">
+    I'd like to share the credits of this project with my colleagues Amanda Bressam and Emily Lanzarin. Each one of us developed our own project with the same API, so we helped one another throughout the development. Here are their GitHub profiles if you're wondering who are these amazing girls.
+    Thanks to both of you! :)
+</p>
 
 * [Amanda's profile](https://github.com/abressam)
 * [Emily's profile](https://github.com/eslanzarin)
